@@ -6,15 +6,15 @@
         "botble cms",
         "botble platform"
     ],
-    "homepage": "https://botble.com",
+    "homepage": "https://ecom-eg.net",
     "support": {
-        "issues": "https://botble.ticksy.com",
-        "document": "https://docs.botble.com"
+        "issues": "https://ecom-eg.net/support",
+        "document": "https://ecom-eg.net/docs"
     },
     "authors": [
         {
-            "name": "Botble Technologies",
-            "email": "contact@botble.com"
+            "name": "Ecom-Eg",
+            "email": "contact@ecom-eg.net"
         }
     ],
     "type": "project",

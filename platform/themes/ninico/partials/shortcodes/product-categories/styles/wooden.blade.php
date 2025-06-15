@@ -1,9 +1,10 @@
-<section class="category-area pt-30 pb-70">
+<section class="category-area pt-30 pb-70 scroll-animate animate-fast dark-theme-section bg-black">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="tpsection mb-40 text-center">
-                    <h2 class="tpsection__title">{!! BaseHelper::clean($shortcode->title) !!}</h2>
+                <div class="tpsection mb-40 text-center" style="margin-top: 60px;">
+                    <h2 class="tpsection__title" style="color: #ffffff !important;">Top <span
+                            style="color: #ffffff !important;">Categories</span></h2>
                 </div>
             </div>
         </div>

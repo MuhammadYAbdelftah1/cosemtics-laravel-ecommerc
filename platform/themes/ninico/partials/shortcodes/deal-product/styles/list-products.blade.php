@@ -1,6 +1,7 @@
-<section class="flash-sale dealproduct-area pt-30 pb-30">
+<section class="flash-sale dealproduct-area pt-30 pb-30 scroll-animate">
     <div class="container">
-        <div class="theme-bg pt-40 pl-40 pr-40" @if ($shortcode->background_color) style="background-color: {{ $shortcode->background_color }} !important;" @endif>
+        <div class="theme-bg pt-40 pl-40 pr-40"
+            @if ($shortcode->background_color) style="background-color: {{ $shortcode->background_color }} !important;" @endif>
             <div class="row mb-40">
                 <div class="col-md-6 col-12">
                     <div class="tpsection mb-40">

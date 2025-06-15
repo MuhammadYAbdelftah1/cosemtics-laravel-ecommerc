@@ -1,8 +1,9 @@
-<section class="white-product-area grey-bg-2 pt-65 pb-70 fix p-relative" @if ($shortcode->background_color) style="background-color: {{ $shortcode->background_color }} !important;" @endif>
+<section class="white-product-area grey-bg-2 pt-65 pb-70 fix p-relative"
+    @if ($shortcode->background_color) style="background-color: {{ $shortcode->background_color }} !important;" @endif>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-12">
-                @if($title = $shortcode->title)
+                @if ($title = $shortcode->title)
                     <div class="tpsection mb-40">
                         <h2 class="tpsection__title">{!! BaseHelper::clean($title) !!}</h2>
                     </div>
@@ -17,13 +18,28 @@
         </div>
         <div class="swiper-container product-active">
             <div class="swiper-wrapper">
-                @foreach($products as $product)
+                @foreach ($products as $product)
                     <div class="swiper-slide">
                         <div class="whiteproduct">
-                            <div class="whiteproduct__thumb">
+                            <div class="whiteproduct__thumb p-relative">
                                 <a href="{{ $product->url }}">
-                                    <img src="{{ RvMedia::getImageUrl($product->image, 'small', default: RvMedia::getDefaultImage()) }}" alt="{{ $product->name }}">
+                                    <img src="{{ RvMedia::getImageUrl($product->image, 'small', default: RvMedia::getDefaultImage()) }}"
+                                        alt="{{ $product->name }}">
                                 </a>
+                                @if (theme_option('enable_quick_view', 'yes') === 'yes' || EcommerceHelper::isWishlistEnabled())
+                                    <div class="whiteproduct__thumb-action">
+                                        @if (theme_option('enable_quick_view', 'yes') === 'yes')
+                                            <a class="quickview" href="#"
+                                                data-url="{{ route('public.ajax.quick-view', $product->id) }}"><i
+                                                    class="fal fa-eye"></i></a>
+                                        @endif
+                                        @if (EcommerceHelper::isWishlistEnabled())
+                                            <a class="wishlist add-to-wishlist" href="#"
+                                                data-url="{{ route('public.wishlist.add', $product->getKey()) }}"><i
+                                                    class="fal fa-heart"></i></a>
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
                             <div class="mt-3 whiteproduct__content d-flex justify-content-between align-items-center">
                                 <div class="whiteproduct__text text-truncate">
@@ -38,10 +54,12 @@
                                 @if (EcommerceHelper::isReviewEnabled())
                                     <div class="tpproduct-details__rating">
                                         <div class="product-rating-wrapper">
-                                            <div class="product-rating" style="width: {{ $product->reviews_avg * 20 }}%"></div>
+                                            <div class="product-rating"
+                                                style="width: {{ $product->reviews_avg * 20 }}%"></div>
                                         </div>
                                     </div>
-                                    <a class="tpproduct-details__reviewers" href="{{ $product->url }}#reviews">({{ $product->reviews_count }})</a>
+                                    <a class="tpproduct-details__reviewers"
+                                        href="{{ $product->url }}#reviews">({{ $product->reviews_count }})</a>
                                 @endif
                             </div>
                         </div>

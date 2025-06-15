@@ -3,6 +3,7 @@ $(() => {
 
     const windowOn = $(window)
 
+
     $(window).on('load', function() {
         $('#preloader').delay(350).fadeOut('slow')
         $('body').delay(350).css({ overflow: 'visible' })
@@ -118,7 +119,7 @@ $(() => {
     })
 
     $('.tp-menu-toggle').on('click', function() {
-        $('.tpsideinfo:not(.tpsidecategories):not(.tpsidesearch)').addClass('tp-sidebar-opened')
+        $('.tpsideinfo:not(.tpsidecategories)').addClass('tp-sidebar-opened')
         $('.body-overlay').addClass('opened')
     })
 
@@ -127,10 +128,7 @@ $(() => {
         $('.body-overlay').addClass('opened')
     })
 
-    $('.tp-search-sidebar-toggle').on('click', function() {
-        $('.tpsidesearch').addClass('tp-sidebar-opened')
-        $('.body-overlay').addClass('opened')
-    })
+    // Search sidebar functionality removed - desktop header search is sufficient
 
     $('.tpsideinfo__close').on('click', function() {
         $('.tpsideinfo').removeClass('tp-sidebar-opened')
@@ -564,13 +562,63 @@ $(() => {
         })
     }
 
+    // Enhanced Scroll Animation Function
+    let initScrollAnimations = function() {
+        // Wait a bit for DOM to be fully ready
+        setTimeout(() => {
+            const animateElements = document.querySelectorAll('.scroll-animate')
+
+            // Check if Intersection Observer is supported
+            if (!window.IntersectionObserver) {
+                // Fallback for older browsers - show all elements
+                $('.scroll-animate').addClass('in-view')
+                return
+            }
+
+            // Optimized intersection observer options for faster animations
+            const observerOptions = {
+                threshold: 0.1, // Trigger when 10% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Start animation when element is about to enter viewport
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add animation class when element enters viewport
+                        entry.target.classList.add('in-view')
+                        // Stop observing this element after animation for better performance
+                        observer.unobserve(entry.target)
+                    }
+                })
+            }, observerOptions)
+
+            // Observe all elements with scroll-animate class
+            animateElements.forEach(el => {
+                observer.observe(el)
+            })
+        }, 100)
+    }
+
     initCountdown()
 
     initSlider()
 
+    // Initialize scroll animations immediately and after DOM is ready
+    initScrollAnimations()
+
+    // Also initialize after a delay to catch any dynamically loaded content
+    setTimeout(initScrollAnimations, 500)
+    setTimeout(initScrollAnimations, 1000)
+
     document.addEventListener('shortcode.loaded', () => {
         initCountdown()
         initSlider()
+        initScrollAnimations()
+    })
+
+    // Initialize on window load as well
+    $(window).on('load', () => {
+        initScrollAnimations()
     })
 
     $('.popup-video').magnificPopup({
@@ -651,8 +699,11 @@ $(() => {
             const $tabContent = $(document).find('.product-area .tab-content .tab-pane')
             const $loading = $(document).find('.loading-spinner')
 
+            // Check if this is on the home page by looking for home page indicators
+            const isHomePage = window.location.pathname === '/' || $target.closest('.product-area').hasClass('home-products')
+
             $.ajax({
-                url: `${url}?type=${$target.data('type')}&limit=${$target.closest('div').data('limit')}`,
+                url: `${url}?type=${$target.data('type')}&limit=${$target.closest('div').data('limit')}&home_page=${isHomePage ? 1 : 0}`,
                 method: 'GET',
                 dataType: 'json',
                 beforeSend: () => $loading.removeClass('d-none'),

@@ -2,7 +2,7 @@
 
 <h1 class="d-none">{{ SeoHelper::getTitleOnly() }}</h1>
 
-<div class="product-area pb-20">
+<section class="product-area pt-30 pb-30 scroll-animate animate-fast dark-theme-section bg-black">
     <div class="container">
         <div class="row @if (theme_option('ecommerce_products_page_layout') === 'right_sidebar') flex-row-reverse @endif">
             <div class="col-lg-2 col-md-12 product-filter-mobile">
@@ -27,7 +27,8 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6">
                                 <div class="product-item-count">
-                                    <span>{{ __(':total Products found', ['total' => $products->total()]) }}</span>
+                                    <span
+                                        style="color: #ffffff;">{{ __(':total Products found', ['total' => $products->total()]) }}</span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -43,34 +44,27 @@
                                             <div class="tp-shop-selector">
                                                 <select name="per-page">
                                                     @foreach (EcommerceHelper::getShowParams() as $key => $value)
-                                                        <option
-                                                            value="{{ $key }}"
-                                                            @selected(request()->input('per-page') === $key || (int) theme_option('number_of_products_per_page') === $key)
-                                                        >{{ $value }}</option>
+                                                        <option value="{{ $key }}"
+                                                            @selected(request()->input('per-page') === $key || (int) theme_option('number_of_products_per_page') === $key)>{{ $value }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="tp-shop-selector">
                                                 <select name="sort-by">
                                                     @foreach (EcommerceHelper::getSortParams() as $key => $value)
-                                                        <option
-                                                            value="{{ $key }}"
-                                                            @selected(request()->input('sort-by') === $key)
-                                                        >{{ $value }}</option>
+                                                        <option value="{{ $key }}"
+                                                            @selected(request()->input('sort-by') === $key)>{{ $value }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <nav class="nav nav-tabs">
                                             @foreach (get_product_layouts() as $key => $value)
-                                                <button
-                                                    data-type="{{ $key }}"
-                                                    type="button"
+                                                <button data-type="{{ $key }}" type="button"
                                                     @class([
                                                         'nav-link',
                                                         'active' => get_current_product_layout() === $key,
-                                                    ])
-                                                >
+                                                    ]) style="color: #ffffff !important;">
                                                     <i class="fal fa-{{ $key === 'list' ? 'list-ul' : 'th' }}"></i>
                                                 </button>
                                             @endforeach
@@ -91,4 +85,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

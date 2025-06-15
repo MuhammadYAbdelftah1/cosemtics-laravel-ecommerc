@@ -4,12 +4,19 @@
     {!! Theme::partial('headers.index') !!}
 
     <main>
-        {!! Theme::partial('breadcrumb') !!}
-        <div class="pt-80 pb-80">
-            <div class="container">
-                {!! Theme::content() !!}
+        @if (!request()->is('products*'))
+            {!! Theme::partial('breadcrumb') !!}
+        @endif
+
+        @if (request()->is('products*'))
+            {!! Theme::content() !!}
+        @else
+            <div class="pt-80 pb-80">
+                <div class="container">
+                    {!! Theme::content() !!}
+                </div>
             </div>
-        </div>
+        @endif
     </main>
 
     {!! Theme::partial('footer') !!}

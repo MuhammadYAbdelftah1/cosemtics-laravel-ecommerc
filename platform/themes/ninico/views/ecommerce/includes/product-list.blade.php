@@ -1,4 +1,4 @@
-@foreach($products as $product)
+@foreach ($products as $product)
     <div class="tpproduct row mb-40">
         <div class="col-lg-4 col-md-12">
             <div class="tpproduct__thumb">
@@ -13,8 +13,11 @@
                         </div>
                     @endif
                     <a href="{{ $product->url }}">
-                        <img src="{{ RvMedia::getImageUrl($product->image, 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $product->name }}">
-                        <img class="thumbitem-secondary" src="{{ RvMedia::getImageUrl(Arr::get($product->images, 2, $product->image), 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $product->name }}">
+                        <img src="{{ RvMedia::getImageUrl($product->image, 'small', false, RvMedia::getDefaultImage()) }}"
+                            alt="{{ $product->name }}">
+                        <img class="thumbitem-secondary"
+                            src="{{ RvMedia::getImageUrl(Arr::get($product->images, 2, $product->image), 'small', false, RvMedia::getDefaultImage()) }}"
+                            alt="{{ $product->name }}">
                     </a>
                 </div>
             </div>
@@ -41,31 +44,32 @@
                 <p>{!! BaseHelper::clean(Str::limit($product->description, 200)) !!}</p>
                 <div class="tpproduct__action">
                     @if (EcommerceHelper::isCompareEnabled())
-                        <a class="add-to-compare" href="#"
-                           title="{{ __('Add to compare') }}"
-                           data-url="{{ route('public.compare.add', $product->getKey()) }}">
+                        <a class="add-to-compare" href="#" title="{{ __('Add to compare') }}"
+                            data-url="{{ route('public.compare.add', $product->getKey()) }}">
                             <i class="fal fa-exchange"></i>
                         </a>
                     @endif
                     @if (theme_option('enable_quick_view', 'yes') === 'yes')
-                        <a class="quickview" href="#" data-url="{{ route('public.ajax.quick-view', $product->id) }}">
+                        <a class="quickview" href="#"
+                            data-url="{{ route('public.ajax.quick-view', $product->id) }}">
                             <i class="fal fa-eye"></i>
                         </a>
                     @endif
                     @if (EcommerceHelper::isWishlistEnabled())
                         <a class="wishlist add-to-wishlist" href="#"
-                           title="{{ __('Add to wishlist') }}"
-                           data-url="{{ route('public.wishlist.add', $product->getKey()) }}">
+                            data-url="{{ route('public.wishlist.add', $product->getKey()) }}">
                             <i class="fal fa-heart"></i>
                         </a>
                     @endif
-                    @if(EcommerceHelper::isCartEnabled())
+                    @if (EcommerceHelper::isCartEnabled())
                         @if ($product->variations()->exists())
-                            <a href="#" data-url="{{ route('public.ajax.quick-shop', $product->slug) }}" class="button-quick-shop" data-id="{{ $product->id }}">
+                            <a href="#" data-url="{{ route('public.ajax.quick-shop', $product->slug) }}"
+                                class="button-quick-shop" data-id="{{ $product->id }}">
                                 <i class="fal fa-shopping-cart"></i>
                             </a>
                         @else
-                            <a class="add-to-cart" href="#" data-url="{{ route('public.cart.add-to-cart') }}" data-id="{{ $product->id }}">
+                            <a class="add-to-cart" href="#" data-url="{{ route('public.cart.add-to-cart') }}"
+                                data-id="{{ $product->id }}">
                                 <i class="fal fa-shopping-cart"></i>
                             </a>
                         @endif

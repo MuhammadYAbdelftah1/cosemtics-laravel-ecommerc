@@ -45,10 +45,10 @@
 
                     &:hover {
                         padding-inline-start: 3px;
-                        color: var(--tp-text-primary);
+                        color: var(--tp-common-white);
 
                         & i {
-                            color: var(--tp-text-primary);
+                            color: var(--tp-common-white);
                         }
                     }
 
@@ -165,7 +165,7 @@
             }
 
             &:hover {
-                color: var(--tp-text-primary);
+                color: var(--tp-common-white);
             }
         }
 
@@ -256,7 +256,7 @@
                 color: var(--tp-text-body);
 
                 &:hover {
-                    color: var(--tp-text-primary);
+                    color: var(--tp-common-white);
                 }
             }
 

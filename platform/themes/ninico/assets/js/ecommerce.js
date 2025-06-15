@@ -951,4 +951,80 @@ $(() => {
     if (window.location.href.indexOf('#reviews') !== -1) {
         scrollToReviewTab()
     }
+
+    /**
+     * Mobile Search Results Fix
+     * Ensures search results appear properly in mobile sidebar
+     */
+    const $mobileSearchBar = $('.mobile-search-bar');
+    const $mobileSearchInput = $('.mobile-search-input');
+
+    // Debug function to check if elements exist
+    function debugMobileSearch() {
+        console.log('Mobile search bar found:', $mobileSearchBar.length);
+        console.log('Mobile search input found:', $mobileSearchInput.length);
+        console.log('Form found:', $mobileSearchBar.find('form').length);
+        console.log('Panel found:', $mobileSearchBar.find('.panel--search-result').length);
+    }
+
+    // Call debug function
+    debugMobileSearch();
+
+    // Enhanced search functionality for mobile
+    $(document).on('keyup', '.mobile-search-input', function() {
+        const $form = $(this).closest('form');
+        const $panel = $form.find('.panel--search-result');
+        const searchValue = $(this).val();
+
+        console.log('Mobile search keyup triggered, value:', searchValue);
+        console.log('Panel element:', $panel.length);
+
+        if (searchValue.length > 0) {
+            // Force show the panel with important
+            $panel.css('display', 'block').addClass('active');
+            console.log('Panel should be visible now');
+        } else {
+            $panel.removeClass('active').css('display', 'none');
+        }
+    });
+
+    // Use MutationObserver to watch for panel changes
+    if (window.MutationObserver && $mobileSearchBar.length) {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' || mutation.type === 'attributes') {
+                    const $target = $(mutation.target);
+                    if ($target.hasClass('panel--search-result')) {
+                        console.log('Panel mutation detected:', $target.hasClass('active'));
+                        if ($target.hasClass('active')) {
+                            $target.css('display', 'block !important');
+                        }
+                    }
+                }
+            });
+        });
+
+        $mobileSearchBar.find('.panel--search-result').each(function() {
+            observer.observe(this, {
+                attributes: true,
+                childList: true,
+                subtree: true,
+                attributeFilter: ['class']
+            });
+        });
+    }
+
+    // Hide results when clicking on a result
+    $(document).on('click', '.mobile-search-bar .panel--search-result a', function() {
+        $('.mobile-search-bar .panel--search-result').removeClass('active').css('display', 'none');
+    });
+
+    // Enhanced blur handling with delay
+    $mobileSearchInput.on('blur', function() {
+        setTimeout(() => {
+            if (!$('.mobile-search-bar .panel--search-result:hover').length) {
+                $('.mobile-search-bar .panel--search-result').removeClass('active').css('display', 'none');
+            }
+        }, 200);
+    });
 })

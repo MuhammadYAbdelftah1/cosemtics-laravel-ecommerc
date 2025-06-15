@@ -2,10 +2,10 @@
 
 .mobile-menu-container {
     .mobile-menu-nav {
-        float: left;
         width: 100%;
         background: none;
         margin-top: 0;
+        text-align: left;
     }
 }
 
@@ -13,10 +13,10 @@
     padding: 0;
     min-height: auto;
     background: none;
-    float: left;
     width: 100%;
     position: relative;
     z-index: 999999;
+    text-align: left;
 
     * {
         box-sizing: content-box;
@@ -29,11 +29,13 @@
     width: 100%;
     list-style-type: none;
     display: block !important;
+    text-align: left;
 
     li {
         position: relative;
-        float: left;
         width: 100%;
+        display: block;
+        text-align: left;
     }
 }
 
@@ -46,21 +48,42 @@
 
 .mobile-menu-container .mobile-menu-nav ul li a {
     display: block;
-    float: left;
     width: 100%;
-    padding: 10px 0;
+    padding: 12px 15px;
     margin: 0;
     text-align: left;
     color: #fff;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.4;
     font-weight: 500;
-    border-bottom: 1px solid #fff3;
+    border-left: 3px solid transparent;
     text-decoration: none;
     text-transform: capitalize !important;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(10px);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--tp-text-primary);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
 
     &:hover {
-        color: var(--tp-text-primary);
+        color: #fff;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        transform: translateX(5px);
+
+        &::before {
+            transform: scaleY(1);
+        }
     }
 }
 
@@ -115,7 +138,7 @@
         & .home-menu-style {
             & li {
                 & a {
-                    text-align: center;
+                    text-align: left;
                 }
             }
         }

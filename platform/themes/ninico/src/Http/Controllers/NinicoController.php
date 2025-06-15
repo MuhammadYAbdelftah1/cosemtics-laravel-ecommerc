@@ -58,7 +58,16 @@ class NinicoController extends PublicController
 
         $currentLayout = 'grid';
 
-        $data = view(Theme::getThemeNamespace('views.ecommerce.includes.product-items'), compact('products', 'currentLayout'))->render();
+        // Check if this is being called from the home page products section
+        $isHomePage = $request->boolean('home_page', false);
+
+        if ($isHomePage) {
+            // Use home page specific template for home page products
+            $data = view(Theme::getThemeNamespace('views.ecommerce.includes.product-grid-home'), compact('products', 'currentLayout'))->render();
+        } else {
+            // Use regular template for shop pages
+            $data = view(Theme::getThemeNamespace('views.ecommerce.includes.product-items'), compact('products', 'currentLayout'))->render();
+        }
 
         return $this->response->setData($data);
     }

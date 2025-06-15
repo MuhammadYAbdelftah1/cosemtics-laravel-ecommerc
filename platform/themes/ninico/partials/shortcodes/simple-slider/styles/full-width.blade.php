@@ -1,7 +1,7 @@
-<div class="tp-slider-area p-relative">
+<div class="tp-slider-area p-relative full-width-slider">
     <div class="swiper-container slider-active">
         <div class="swiper-wrapper">
-            @foreach($sliders as $slider)
+            @foreach ($sliders as $slider)
                 <div class="swiper-slide">
                     <div class="tp-slide-item">
                         <div class="tp-slide-item__img">
@@ -14,4 +14,3 @@
     </div>
     <div class="slider-pagination"></div>
 </div>
-

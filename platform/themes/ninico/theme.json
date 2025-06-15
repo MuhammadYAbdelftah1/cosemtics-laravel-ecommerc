@@ -1,10 +1,10 @@
 {
     "id": "botble/ninico",
-    "name": "Ninico",
+    "name": "Ecom-Eg",
     "namespace": "Theme\\Ninico\\",
-    "description": "Ninico - Minimal eCommerce",
-    "author": "Botble Technologies",
-    "url": "https://botble.com",
+    "description": "Laravel E-commerce Web App",
+    "author": "Ecom-Eg",
+    "url": "https://ecom-eg.net",
     "version": "1.0.0",
     "required_plugins": []
 }

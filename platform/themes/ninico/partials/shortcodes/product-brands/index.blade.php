@@ -1,9 +1,10 @@
-<section class="category-area pt-70 pb-30">
+<section class="category-area pt-70 pb-30 scroll-animate animate-fast dark-theme-section bg-black">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="tpsection mb-40 text-center">
-                    <h2 class="tpsection__title">{!! BaseHelper::clean($shortcode->title) !!}</h2>
+                <div class="tpsection mb-40 text-center" style="margin-top: 60px;">
+                    <h2 class="tpsection__title" style="color: #ffffff !important;">Our <span
+                            style="color: #ffffff !important;">Brands</span></h2>
                 </div>
             </div>
         </div>

@@ -357,6 +357,14 @@ small {
     text-transform: capitalize;
 }
 
+// Hide "Add New Plugin" menu item from admin panel
+.navbar-nav .nav-item a[href*="plugins/new"],
+.sidebar-menu li a[href*="plugins/new"],
+.menu-item a[href*="plugins/new"],
+[data-menu-item="cms-core-plugins-marketplace"] {
+    display: none !important;
+}
+
 .preview-image-wrapper {
     &.preview-image-wrapper-not-allow-thumb {
         .preview-image-inner {

@@ -1,5 +1,4 @@
 <header class="main-header">
-    {!! Theme::partial('header-top') !!}
     <div class="logo-area pt-30 d-none d-xl-block">
         {!! Theme::partial('header-middle') !!}
     </div>
@@ -7,7 +6,7 @@
         <div class="for-megamenu p-relative">
             <div class="container">
                 <div class="row align-items-center">
-                    @if(Theme::get('hasCategoriesDropdown', true))
+                    @if (Theme::get('hasCategoriesDropdown', true))
                         <div class="col-xl-2 col-lg-3 d-md-none">
                             {!! Theme::partial('categories-dropdown') !!}
                         </div>
@@ -28,7 +27,7 @@
                         </div>
                     @endif
 
-                    @if($hotline = theme_option('hotline'))
+                    @if ($hotline = theme_option('hotline'))
                         <div class="col-lg-3">
                             <div class="menu-contact">
                                 <ul>

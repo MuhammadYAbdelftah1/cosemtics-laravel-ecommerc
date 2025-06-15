@@ -8,83 +8,75 @@
     $style = $shortcode->style ?? 'left';
 @endphp
 
-@if($title || $subtitle || $description || $backgroundImage)
-<section class="promo-banner-section py-5" style="background-image: url('{{ $backgroundImage }}'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-    <div class="banner-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3);"></div>
-    <div class="container">
-        <div class="row align-items-center">
-            @if($style === 'center')
-                <div class="col-lg-8 col-md-10 mx-auto text-center">
-                    <div class="promo-content" style="position: relative; z-index: 2; padding: 60px 0;">
-                        @if($subtitle)
-                            <h5 class="promo-subtitle mb-3" style="color: #fff; font-size: 16px; font-weight: 500;">
-                                {!! BaseHelper::clean($subtitle) !!}
-                            </h5>
-                        @endif
-                        
-                        @if($title)
-                            <h3 class="promo-title mb-4" style="color: #fff; font-size: 36px; font-weight: 700; line-height: 1.3;">
-                                {!! BaseHelper::clean($title) !!}
+@if ($title || $subtitle || $description || $backgroundImage)
+    <section class="promo-banner-section py-5 scroll-animate animate-fast dark-theme-section"
+        style="position: relative; background-image: url('{{ asset('offers.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <!-- Remove white overlay completely -->
+        <div style="display: none;"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                @if ($style === 'center')
+                    <div class="col-lg-12 mx-auto text-center">
+                        <div class="promo-content"
+                            style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 0 60px 0;">
+                            <!-- Simplified Banner Content - Bottom Center -->
+                            <div class="promo-subtitle mb-3"
+                                style="background-color: rgba(0, 0, 0, 0.8); color: #ffffff; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 8px 20px; border-radius: 25px; display: inline-block; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                                LIMITED TIME
+                            </div>
+
+                            <h3 class="promo-title mb-4"
+                                style="background-color: rgba(0, 0, 0, 0.8); color: #ffffff; font-size: 22px; font-weight: 700; line-height: 1.4; padding: 16px 24px; border-radius: 15px; display: inline-block; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); margin: 15px auto;">
+                                Get 20% off on all skincare products
                             </h3>
-                        @endif
-                        
-                        @if($description)
-                            <p class="promo-description mb-4" style="color: #fff; font-size: 18px; line-height: 1.6;">
-                                {!! BaseHelper::clean($description) !!}
-                            </p>
-                        @endif
-                        
-                        @if($buttonText && $buttonUrl)
-                            <div class="promo-button">
-                                <a href="{{ $buttonUrl }}" class="tp-btn tp-btn-2 tp-btn-white">
-                                    {{ $buttonText }}
+
+                            <div class="promo-button mt-3">
+                                <a href="{{ $buttonUrl ?: '#' }}" class="tp-btn tp-btn-2"
+                                    style="background-color: #ffffff; color: #000000; border: 2px solid #ffffff; padding: 15px 35px; border-radius: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-size: 16px;">
+                                    Shop Sale
                                     <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16 7H1M16 7L10 1M16 7L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 7H1M16 7L10 1M16 7L10 13" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </span>
                                 </a>
                             </div>
-                        @endif
+                        </div>
                     </div>
-                </div>
-            @else
-                <div class="col-lg-6 {{ $style === 'right' ? 'offset-lg-6' : '' }}">
-                    <div class="promo-content" style="position: relative; z-index: 2; padding: 60px 0;">
-                        @if($subtitle)
-                            <h5 class="promo-subtitle mb-3" style="color: #fff; font-size: 16px; font-weight: 500;">
-                                {!! BaseHelper::clean($subtitle) !!}
-                            </h5>
-                        @endif
-                        
-                        @if($title)
-                            <h3 class="promo-title mb-4" style="color: #fff; font-size: 36px; font-weight: 700; line-height: 1.3;">
-                                {!! BaseHelper::clean($title) !!}
+                @else
+                    <div class="col-lg-12">
+                        <div class="promo-content"
+                            style="position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 0 60px 0; text-align: center;">
+                            <!-- Simplified Banner Content - Bottom Center -->
+                            <div class="promo-subtitle mb-3"
+                                style="background-color: rgba(0, 0, 0, 0.8); color: #ffffff; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 8px 20px; border-radius: 25px; display: inline-block; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2);">
+                                LIMITED TIME
+                            </div>
+
+                            <h3 class="promo-title mb-4"
+                                style="background-color: rgba(0, 0, 0, 0.8); color: #ffffff; font-size: 22px; font-weight: 700; line-height: 1.4; padding: 16px 24px; border-radius: 15px; display: inline-block; backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.2); margin: 15px auto;">
+                                Get 20% off on all skincare products
                             </h3>
-                        @endif
-                        
-                        @if($description)
-                            <p class="promo-description mb-4" style="color: #fff; font-size: 18px; line-height: 1.6;">
-                                {!! BaseHelper::clean($description) !!}
-                            </p>
-                        @endif
-                        
-                        @if($buttonText && $buttonUrl)
-                            <div class="promo-button">
-                                <a href="{{ $buttonUrl }}" class="tp-btn tp-btn-2 tp-btn-white">
-                                    {{ $buttonText }}
+
+                            <div class="promo-button mt-3">
+                                <a href="{{ $buttonUrl ?: '#' }}" class="tp-btn tp-btn-2"
+                                    style="background-color: #ffffff; color: #000000; border: 2px solid #ffffff; padding: 15px 35px; border-radius: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-size: 16px;">
+                                    Shop Sale
                                     <span>
-                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16 7H1M16 7L10 1M16 7L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 7H1M16 7L10 1M16 7L10 13" stroke="currentColor"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </span>
                                 </a>
                             </div>
-                        @endif
+                        </div>
                     </div>
-                </div>
-            @endif
+                @endif
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 @endif

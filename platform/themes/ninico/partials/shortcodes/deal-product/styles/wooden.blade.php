@@ -1,11 +1,13 @@
-<section class="dealproduct-area pt-30 pb-30">
+<section class="dealproduct-area pt-30 pb-30 scroll-animate animate-fast dark-theme-section bg-grey">
     <div class="container">
-        <div class="theme-bg pt-40 pb-40" @if ($shortcode->background_color) style="background-color: {{ $shortcode->background_color }} !important;" @endif>
+        <div class="theme-bg pt-40 pb-40"
+            @if ($shortcode->background_color) style="background-color: {{ $shortcode->background_color }} !important;" @endif>
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="tpdealproduct">
                         <div class="tpdealproduct__thumb p-relative text-center">
-                            <img src="{{ RvMedia::getImageUrl($product->image, 'small', false, RvMedia::getDefaultImage()) }}" alt="{{ $product->name }}">
+                            <img src="{{ RvMedia::getImageUrl($product->image, 'small', false, RvMedia::getDefaultImage()) }}"
+                                alt="{{ $product->name }}">
                             <div class="tpdealproductd__offer">
                                 <p class="tpdealproduct__offer-price">
                                     <span>{{ __('From') }}</span>{{ format_price($product->front_sale_price_with_taxes) }}
@@ -17,7 +19,9 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="tpdealcontact pt-30">
                         <div class="tpdealcontact__price mb-5">
-                            @include(EcommerceHelper::viewPath('includes.product-price'), ['product' => $product])
+                            @include(EcommerceHelper::viewPath('includes.product-price'), [
+                                'product' => $product,
+                            ])
                         </div>
                         <div class="tpdealcontact__text mb-30">
                             <h4 class="tpdealcontact__title mb-10">
@@ -27,7 +31,9 @@
                         </div>
                         <div class="tpdealcontact__progress mb-30">
                             <div class="progress">
-                                <div class="progress-bar" style="width: {{ $product->pivot->quantity > 0 ? ($product->pivot->sold / $product->pivot->quantity) * 100 : 0 }}%"></div>
+                                <div class="progress-bar"
+                                    style="width: {{ $product->pivot->quantity > 0 ? ($product->pivot->sold / $product->pivot->quantity) * 100 : 0 }}%">
+                                </div>
                             </div>
                         </div>
                         <div class="tpdealcontact__count">

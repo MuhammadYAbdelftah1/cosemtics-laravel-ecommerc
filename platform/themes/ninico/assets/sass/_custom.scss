@@ -7,8 +7,370 @@
     }
 }
 
+// Scroll Animation Keyframes
+@keyframes slideUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpFadeInSlow {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpFadeInFast {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .text-primary {
     color: var(--tp-text-primary) !important;
+}
+
+// Scroll Animation Classes - Optimized for Performance
+.scroll-animate {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
+
+    &.animate-in {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &.animate-slow {
+        transition-duration: 0.6s;
+        transform: translate3d(0, 40px, 0);
+
+        &.animate-in {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &.animate-fast {
+        transition-duration: 0.25s;
+        transform: translate3d(0, 15px, 0);
+
+        &.animate-in {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    &.animate-delay-1 {
+        transition-delay: 0.05s;
+    }
+
+    &.animate-delay-2 {
+        transition-delay: 0.1s;
+    }
+
+    &.animate-delay-3 {
+        transition-delay: 0.15s;
+    }
+
+    &.animate-delay-4 {
+        transition-delay: 0.2s;
+    }
+
+    &.animate-delay-5 {
+        transition-delay: 0.25s;
+    }
+}
+
+// Reduced motion support for accessibility
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+// Professional Mobile Menu Styling
+.tpsideinfo {
+    background: #000000 !important;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+    &__logo {
+        padding: 15px;
+        background: transparent !important;
+        text-align: left;
+
+        img {
+            max-width: 120px;
+            height: auto;
+            filter: brightness(1.2);
+        }
+    }
+
+    &__close {
+        background: transparent !important;
+        border: 1px solid #333333;
+        border-radius: 8px;
+        padding: 10px 15px;
+        color: #fff;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #333333 !important;
+            border-color: #555555;
+            color: #fff;
+        }
+    }
+
+    &__nabtab {
+        background: transparent !important;
+    }
+
+    &__wishlist-link,
+    &__account-link {
+        text-align: left;
+
+        a {
+            padding: 12px 15px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent !important;
+            border-left: 3px solid transparent;
+            text-align: left;
+            font-size: 14px;
+
+            &:hover {
+                background: transparent !important;
+                border-left-color: #555555;
+                transform: translateX(5px);
+                color: #fff;
+            }
+
+            i {
+                margin-right: 8px;
+                width: 16px;
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__switcher {
+        background: transparent !important;
+        padding: 15px;
+        text-align: left;
+
+        .navbar-nav {
+            text-align: left;
+
+            li {
+                margin-bottom: 8px;
+                text-align: left;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .nav-link {
+                    text-align: left;
+                    justify-content: flex-start;
+                    font-size: 14px;
+                    padding: 8px 0;
+                }
+
+                .dropdown-toggle {
+                    text-align: left;
+                    justify-content: flex-start;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    // Additional mobile menu styling to remove all light backgrounds
+    .nav-tabs {
+        background: transparent !important;
+        border: none;
+
+        .nav-link {
+            background: transparent !important;
+            border: 1px solid #333333;
+            color: #fff;
+            margin-bottom: 8px;
+
+            &:hover, &.active {
+                background: #333333 !important;
+                border-color: #555555;
+                color: #fff;
+            }
+        }
+    }
+
+    .tab-content {
+        background: transparent !important;
+
+        .tab-pane {
+            background: transparent !important;
+
+            .mobile-menu {
+                background: transparent !important;
+
+                .mobile-menu-item {
+                    background: transparent !important;
+
+                    a {
+                        background: transparent !important;
+                        color: #fff;
+
+                        &:hover {
+                            background: transparent !important;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Professional Slider Styling
+.slider-area,
+.banner-area,
+.tpslider-area,
+.simple-slider {
+    .swiper-container,
+    .slider-wrapper,
+    .banner-slider {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .swiper-slide,
+        .slider-item,
+        .banner-item {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+    }
+
+    .swiper-pagination {
+        z-index: 10;
+
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            opacity: 1;
+            transition: all 0.3s ease;
+
+            &.swiper-pagination-bullet-active {
+                background: var(--tp-text-primary);
+                border-color: var(--tp-text-primary);
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: var(--tp-text-primary);
+            border-color: var(--tp-text-primary);
+            transform: scale(1.1);
+        }
+
+        &::after {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        &:hover::after {
+            color: #fff;
+        }
+    }
+}
+
+// TESTIMONIAL SECTION - FORCE BLACK BACKGROUND EVERYWHERE
+.testimonials-section {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    .swiper-container {
+        border-radius: 12px;
+        background: rgba(255,255,255,0.05) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-item {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+        transition: all 0.3s ease;
+        color: #ffffff !important;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) !important;
+        }
+    }
+}
+
+// Product Slider Professional Styling
+.flash-sale-slider,
+.product-slider {
+    .swiper-container {
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
 }
 
 @-webkit-keyframes lds-dual-ring {
@@ -125,7 +487,7 @@
 }
 
 .tpsideinfo {
-    width: 95%;
+    width: 60%;
 }
 
 .tpdealproduct__thumb {
@@ -621,11 +983,12 @@ button {
 }
 
 .tpsideinfo__switcher {
-    border-top: 1px solid #fff3;
-    padding-top: 14px;
+    padding-top: 10px;
+    text-align: left;
 
     .nav-item {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        text-align: left;
 
         &:last-child {
             margin-bottom: 0;
@@ -634,13 +997,17 @@ button {
 
     .nav-link {
         padding: 0;
+        text-align: left;
+        justify-content: flex-start;
     }
 
     a {
         &.dropdown-toggle {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--tp-common-white);
             font-weight: 500;
+            text-align: left;
+            justify-content: flex-start;
 
             &:hover {
                 color: var(--tp-text-primary);
@@ -651,11 +1018,11 @@ button {
             }
 
             & i {
-                font-size: 18px;
+                font-size: 16px;
                 color: var(--tp-common-white);
-                line-height: 35px;
+                line-height: 30px;
                 text-align: center;
-                margin-inline-end: 10px;
+                margin-inline-end: 8px;
             }
         }
     }
@@ -809,13 +1176,14 @@ button {
     }
 }
 
-.tpproduct__thumb-discount,
-.tpproduct__thumb-topsall,
-.tpproduct__thumb-volt {
-    position: unset;
-    top: unset;
-    left: unset;
-}
+// Remove this override - we want absolute positioning for our premium design
+// .tpproduct__thumb-discount,
+// .tpproduct__thumb-topsall,
+// .tpproduct__thumb-volt {
+//     position: unset;
+//     top: unset;
+//     left: unset;
+// }
 
 .swiper-button-disabled {
     display: none;
@@ -983,11 +1351,291 @@ main {
     }
 }
 
-.tpsidesearch {
-    transform: translateX(120%);
+// Premium Mobile Search Bar Styles
+.mobile-search-bar {
+    padding: 0 20px;
+    margin-bottom: 25px;
 
-    &.tp-sidebar-opened {
-        transform: translateX(5%);
+    .mobile-search-wrapper {
+        position: relative;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &:hover {
+            border-color: rgba(255,255,255,0.25);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        &:focus-within {
+            border-color: var(--tp-text-primary);
+            box-shadow: 0 0 0 3px rgba(var(--tp-text-primary-rgb), 0.1), 0 12px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+    }
+
+    .mobile-search-input {
+        background: transparent;
+        border: none;
+        color: #fff;
+        height: 55px;
+        padding: 0 60px 0 20px;
+        width: 100%;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+
+        &::placeholder {
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+        }
+
+        &:focus {
+            outline: none;
+            color: #fff;
+        }
+    }
+
+    .mobile-search-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 15px;
+        background: var(--tp-text-primary);
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(var(--tp-text-primary-rgb), 0.3);
+
+        &:hover {
+            background: var(--tp-common-black);
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 6px 16px rgba(var(--tp-text-primary-rgb), 0.4);
+        }
+
+        &:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        i {
+            font-size: 14px;
+        }
+    }
+
+    .panel--search-result {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 12px;
+        margin-top: 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 99999;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        display: none;
+
+        &.active {
+            display: block !important;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .panel__content {
+            max-height: 300px;
+            overflow-y: auto;
+
+            .product-item {
+                border-bottom: 1px solid rgba(0,0,0,0.05);
+                padding: 12px 15px;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background: rgba(var(--tp-text-primary-rgb), 0.05);
+                    transform: translateX(5px);
+                }
+
+                .product-image {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 6px;
+                    overflow: hidden;
+                    flex-shrink: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .product-info {
+                    flex: 1;
+
+                    .product-name {
+                        color: var(--tp-text-body);
+                        font-size: 14px;
+                        font-weight: 400;
+                        text-decoration: none;
+                        display: block;
+                        margin-bottom: 4px;
+
+                        &:hover {
+                            color: var(--tp-text-primary);
+                        }
+                    }
+
+                    .product-price {
+                        font-size: 12px;
+                        color: var(--tp-text-body);
+                        opacity: 0.7;
+
+                        span {
+                            color: var(--tp-text-primary);
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+
+            .loadmore {
+                padding: 12px 15px;
+                text-align: center;
+                border-top: 1px solid rgba(0,0,0,0.05);
+
+                a {
+                    color: var(--tp-text-primary);
+                    font-size: 14px;
+                    text-decoration: none;
+                    font-weight: 500;
+
+                    &:hover {
+                        color: var(--tp-text-body);
+                    }
+                }
+            }
+        }
+
+        .panel__footer {
+            padding: 10px 15px;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+
+            a {
+                color: var(--tp-text-primary);
+                font-size: 14px;
+                text-decoration: none;
+                font-weight: 500;
+
+                &:hover {
+                    color: var(--tp-text-body);
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Mobile Menu Divider
+.mobile-menu-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.3) 80%, transparent 100%);
+    margin: 20px 15px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--tp-text-primary);
+        border-radius: 2px;
+        box-shadow: 0 0 10px rgba(var(--tp-text-primary-rgb), 0.5);
+    }
+}
+
+// Fix hover colors for mobile menu items
+.tpsideinfo__account-link,
+.tpsideinfo__wishlist-link {
+    a {
+        &:hover {
+            color: var(--tp-common-white) !important;
+
+            i {
+                color: var(--tp-common-white) !important;
+            }
+        }
+    }
+}
+
+// Fix currency hover colors in mobile menu
+.tpsideinfo__switcher {
+    .navbar-nav {
+        li {
+            .nav-link, .dropdown-toggle {
+                &:hover {
+                    color: var(--tp-common-white) !important;
+
+                    i {
+                        color: var(--tp-common-white) !important;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                .dropdown-item {
+                    &:hover {
+                        color: var(--tp-common-white) !important;
+                        background-color: rgba(255,255,255,0.1) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Fix desktop currency hover colors
+.headertoplag__lang ul li {
+    a, button {
+        &:hover {
+            color: var(--tp-common-white) !important;
+        }
     }
 }
 
@@ -1553,6 +2201,179 @@ main {
     display: none;
 }
 
+// Dark Theme Premium UI Styles
+.dark-theme-section {
+    &.bg-black {
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+        color: #ffffff !important;
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff !important;
+        }
+
+        p, span, div {
+            color: #e0e0e0 !important;
+        }
+
+        .tpsection__title {
+            color: #ffffff !important;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                left: -20px;
+                width: 40px;
+                height: 3px;
+                background: linear-gradient(90deg, var(--tp-text-primary) 0%, transparent 100%);
+                border-radius: 2px;
+                transform: rotate(-15deg);
+                opacity: 0.8;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                right: -25px;
+                width: 50px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent 0%, var(--tp-text-primary) 100%);
+                border-radius: 2px;
+                transform: rotate(20deg);
+                opacity: 0.6;
+            }
+
+            span {
+                color: var(--tp-text-primary) !important;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: linear-gradient(90deg, var(--tp-text-primary) 0%, rgba(var(--tp-text-primary-rgb), 0.3) 100%);
+                    border-radius: 2px;
+                    transform: skew(-15deg);
+                }
+            }
+        }
+
+        .tpcategory__title a {
+            color: #ffffff !important;
+
+            &:hover {
+                color: var(--tp-text-primary) !important;
+            }
+        }
+
+        .tpproduct__title a {
+            color: #ffffff !important;
+
+            &:hover {
+                color: var(--tp-text-primary) !important;
+            }
+        }
+
+        .tpproduct__price {
+            color: #ffffff !important;
+        }
+
+        .tpproduct__priceinfo-list-oldprice {
+            color: #999999 !important;
+        }
+    }
+
+    &.bg-grey {
+        background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%) !important;
+        color: #ffffff !important;
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff !important;
+        }
+
+        p, span, div {
+            color: #e0e0e0 !important;
+        }
+
+        .tpsection__title {
+            color: #ffffff !important;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                left: -20px;
+                width: 40px;
+                height: 3px;
+                background: linear-gradient(90deg, var(--tp-text-primary) 0%, transparent 100%);
+                border-radius: 2px;
+                transform: rotate(-15deg);
+                opacity: 0.8;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                right: -25px;
+                width: 50px;
+                height: 2px;
+                background: linear-gradient(90deg, transparent 0%, var(--tp-text-primary) 100%);
+                border-radius: 2px;
+                transform: rotate(20deg);
+                opacity: 0.6;
+            }
+
+            span {
+                color: var(--tp-text-primary) !important;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: linear-gradient(90deg, var(--tp-text-primary) 0%, rgba(var(--tp-text-primary-rgb), 0.3) 100%);
+                    border-radius: 2px;
+                    transform: skew(-15deg);
+                }
+            }
+        }
+
+        .tpcategory__title a {
+            color: #ffffff !important;
+
+            &:hover {
+                color: var(--tp-text-primary) !important;
+            }
+        }
+
+        .tpproduct__title a {
+            color: #ffffff !important;
+
+            &:hover {
+                color: var(--tp-text-primary) !important;
+            }
+        }
+
+        .tpproduct__price {
+            color: #ffffff !important;
+        }
+
+        .tpproduct__priceinfo-list-oldprice {
+            color: #999999 !important;
+        }
+    }
+}
+
 // Full Banner Section Styles
 .full-banner-section {
     position: relative;
@@ -1605,51 +2426,306 @@ main {
     }
 }
 
+// Dark Theme Product Cards
+.dark-theme-section {
+    .tpproduct {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        transition: all 0.3s ease !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--tp-text-primary) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+    }
+
+    .tpcategory {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        transition: all 0.3s ease !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--tp-text-primary) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+    }
+
+    .brand-item {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        transition: all 0.3s ease !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--tp-text-primary) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+    }
+
+    .testimonial-item {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #ffffff !important;
+
+        .testimonial-content p {
+            color: #e0e0e0 !important;
+        }
+
+        .author-name {
+            color: #ffffff !important;
+        }
+
+        .author-company {
+            color: #cccccc !important;
+        }
+    }
+
+    .nav-tabs {
+        .nav-link {
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+
+            &:hover {
+                color: var(--tp-text-primary) !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+            }
+
+            &.active {
+                color: var(--tp-text-primary) !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-color: var(--tp-text-primary) !important;
+            }
+        }
+    }
+
+    // Product navigation tabs - make all white by default
+    .tpnavbar .nav-tabs .nav-link {
+        color: #ffffff !important;
+        border: none !important;
+        background: transparent !important;
+
+        &:hover {
+            color: var(--tp-text-primary) !important;
+        }
+
+        &.active {
+            color: var(--tp-text-primary) !important;
+            background: transparent !important;
+        }
+    }
+
+    .tp-btn {
+        background: var(--tp-text-primary) !important;
+        color: #ffffff !important;
+        border: 2px solid var(--tp-text-primary) !important;
+
+        &:hover {
+            background: transparent !important;
+            color: var(--tp-text-primary) !important;
+            border-color: var(--tp-text-primary) !important;
+        }
+    }
+
+    // Deal Product Specific Styling
+    .tpdealcontact {
+        h4, h5, h6 {
+            color: #ffffff !important;
+        }
+
+        .tpdealcontact__price {
+            color: #ffffff !important;
+        }
+
+        .tpdealcontact__title {
+            color: #ffffff !important;
+        }
+
+        .tpdealcontact__text {
+            color: #e0e0e0 !important;
+        }
+    }
+
+    .tpdealproduct__thumb {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+    }
+
+    .theme-bg {
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+    }
+
+    // Flash sale specific styling
+    .flash-sale .theme-bg {
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%) !important;
+    }
+
+    // Image Text Section Styling
+    .section-subtitle {
+        color: var(--tp-text-primary) !important;
+    }
+
+    .section-title {
+        color: #ffffff !important;
+    }
+
+    .section-description {
+        color: #e0e0e0 !important;
+    }
+
+    // Banner Content Styling
+    .banner-subtitle {
+        color: #ffffff !important;
+    }
+
+    .banner-title {
+        color: #ffffff !important;
+    }
+
+    .promo-subtitle {
+        color: var(--tp-text-primary) !important;
+    }
+
+    .promo-title {
+        color: #ffffff !important;
+    }
+
+    .promo-description {
+        color: #e0e0e0 !important;
+    }
+
+    // Countdown Timer Styling
+    .tpdealcontact__countdown {
+        .cdown {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+
+            span {
+                color: #ffffff !important;
+            }
+
+            p {
+                color: #cccccc !important;
+            }
+        }
+    }
+
+    // Services Section Styling
+    .tpservicesitem {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        transition: all 0.3s ease !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--tp-text-primary) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .tpservicesitem__title {
+            color: #ffffff !important;
+        }
+
+        p {
+            color: #e0e0e0 !important;
+        }
+    }
+}
+
 // Promotional Banner Section Styles
 .promo-banner-section {
     position: relative;
     overflow: hidden;
     height: 80vh;
     min-height: 500px;
-    margin-top: 60px;
+    margin-top: 0 !important; // Remove white gap above banner
+    margin-bottom: 0 !important;
 
     @media (max-width: 768px) {
         height: 60vh;
         min-height: 350px;
-        margin-top: 40px;
+        margin-top: 0 !important; // Remove white gap above banner on mobile
+        margin-bottom: 0 !important;
     }
 
-    .promo-content {
-        .promo-subtitle {
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .promo-title {
-            line-height: 1.3;
-
-            @media (max-width: 768px) {
-                font-size: 28px !important;
-            }
-        }
-
-        .promo-description {
-            max-width: 500px;
-
-            @media (max-width: 768px) {
-                font-size: 16px !important;
-            }
-        }
+    // Remove any white overlays or backgrounds - CRITICAL FIX
+    &::before,
+    &::after {
+        display: none !important;
+        content: none !important;
+        background: none !important;
     }
 
-    .row {
-        height: 80vh;
-        min-height: 500px;
+    // Ensure no white backgrounds on any child elements - CRITICAL FIX
+    * {
+        background-color: transparent !important;
+        background-image: none !important;
+    }
 
-        @media (max-width: 768px) {
-            height: 60vh;
-            min-height: 350px;
+    // Override container backgrounds - CRITICAL FIX
+    .container, .row, .col-12, .col-md-12, .col-lg-12, .col-lg-6 {
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+
+    // Additional desktop-specific overlay removal
+    @media (min-width: 769px) {
+        // Force removal of any desktop-specific overlays
+        &::before, &::after,
+        .container::before, .container::after,
+        .row::before, .row::after,
+        [class*="col-"]::before, [class*="col-"]::after {
+            display: none !important;
+            content: none !important;
+            background: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
         }
+
+        // Override any Bootstrap utility classes
+        .bg-white, .bg-light, .bg-secondary {
+            background-color: transparent !important;
+        }
+    }
+}
+
+// Remove white gap above promo banner - similar to brands section fix
+.promo-banner-section {
+    &::before {
+        display: none !important;
+        content: none !important;
+    }
+}
+
+// Fix spacing issues around promo banner
+.tp-slider-area + .promo-banner-section,
+.slider-section + .promo-banner-section,
+section + .promo-banner-section {
+    margin-top: 0 !important;
+    border-top: none !important;
+}
+
+// Remove any padding/margin from elements before promo banner
+.promo-banner-section {
+    &:not(:first-child) {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
 
@@ -1835,6 +2911,84 @@ main {
     }
 }
 
+// Full width slider styles - Updated for better compatibility
+.slider-area {
+    // Remove default padding/margin for full width
+    padding: 0 !important;
+    margin: 0 !important;
+
+    // Remove pb-25 class padding for full width
+    &.pb-25 {
+        padding-bottom: 0 !important;
+    }
+}
+
+.full-width-slider {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    position: relative;
+
+    .tp-slide-item {
+        &__img {
+            img {
+                width: 100% !important;
+                height: auto !important;
+                border-radius: 0 !important; // Remove border radius for full width
+                object-fit: cover;
+
+                // Ensure proper height on different screen sizes
+                @media (min-width: 1200px) {
+                    min-height: 500px;
+                }
+                @media (min-width: 768px) and (max-width: 1199px) {
+                    min-height: 400px;
+                }
+                @media (max-width: 767px) {
+                    min-height: 300px;
+                }
+            }
+        }
+
+        &__content {
+            // Adjust content positioning for full width
+            padding-inline-start: 60px;
+
+            @media (max-width: 1199px) {
+                padding-inline-start: 40px;
+            }
+            @media (max-width: 991px) {
+                padding-inline-start: 30px;
+            }
+            @media (max-width: 767px) {
+                padding-inline-start: 20px;
+                max-width: 90%;
+            }
+        }
+    }
+
+    // Pagination positioning for full width
+    .slider-pagination {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+}
+
+// Additional styles to ensure full width works properly
+.slider-area .full-width-slider {
+    overflow: hidden;
+}
+
+// Override any container constraints
+.slider-area .full-width-slider .swiper-container,
+.slider-area .full-width-slider .slider-active {
+    width: 100% !important;
+    max-width: none !important;
+}
+
 // Testimonials Section Styles
 .testimonials-section {
     .testimonial-item {
@@ -1978,5 +3132,4090 @@ main {
         .testimonial-item {
             margin: 10px 5px !important;
         }
+    }
+}
+
+// Header currency switcher styling in header-meta
+.header-currency-switcher {
+    margin-right: 15px;
+
+    .headertoplag__lang {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                position: relative;
+
+                button {
+                    background: none;
+                    border: none;
+                    color: var(--tp-text-primary);
+                    font-size: 14px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
+
+                    span i {
+                        font-size: 12px;
+                        transition: transform 0.3s ease;
+                    }
+                }
+
+                &:hover {
+                    .header-meta__lang-submenu {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+                    }
+
+                    button span i {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .header-meta__lang-submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        min-width: 80px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 999;
+        margin: 0;
+        padding: 8px 0;
+        list-style: none;
+
+        li {
+            a {
+                display: block;
+                padding: 8px 16px;
+                color: var(--tp-text-primary);
+                text-decoration: none;
+                font-size: 14px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: var(--primary-color);
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+// Professional Desktop Search Bar (based on mobile design)
+.professional-search-bar {
+    width: 280px;
+
+    .professional-search-wrapper {
+        position: relative;
+        width: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &:hover {
+            border-color: rgba(0,0,0,0.12);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-1px);
+        }
+
+        &:focus-within {
+            border-color: var(--tp-text-primary);
+            box-shadow: 0 0 0 3px rgba(var(--tp-text-primary-rgb), 0.1), 0 8px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-1px);
+        }
+    }
+
+    .professional-search-input {
+        background: transparent;
+        border: none;
+        color: var(--tp-text-body);
+        height: 50px;
+        padding: 0 60px 0 20px;
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.3px;
+
+        &::placeholder {
+            color: rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+
+        &:focus {
+            outline: none;
+            color: var(--tp-text-body);
+        }
+    }
+
+    .professional-search-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 12px;
+        background: var(--tp-text-primary);
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(var(--tp-text-primary-rgb), 0.3);
+
+        &:hover {
+            background: var(--tp-common-black);
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 4px 12px rgba(var(--tp-text-primary-rgb), 0.4);
+        }
+
+        &:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        i {
+            font-size: 12px;
+        }
+    }
+
+    .panel--search-result {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0,0,0,0.08);
+        border-radius: 12px;
+        margin-top: 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        position: absolute;
+        width: 100%;
+        z-index: 1000;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+        &.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .search-result-item {
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:hover {
+                background: rgba(var(--tp-text-primary-rgb), 0.05);
+                transform: translateX(3px);
+            }
+
+            a {
+                color: var(--tp-text-body);
+                display: block;
+                font-size: 14px;
+                text-decoration: none;
+                font-weight: 400;
+
+                &:hover {
+                    color: var(--tp-text-primary);
+                }
+            }
+        }
+    }
+}
+
+// Header layout improvements
+.main-header {
+    .main-menu-area {
+        .container {
+            .row {
+                // Better spacing and alignment
+                gap: 20px;
+
+                .col-auto {
+                    flex: 0 0 auto;
+                }
+
+                .col {
+                    // Center the menu items
+                    .main-menu {
+                        nav {
+                            ul {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin: 0;
+                                padding: 0;
+                                list-style: none;
+
+                                li {
+                                    margin: 0 15px;
+
+                                    a {
+                                        padding: 25px 0;
+                                        font-weight: 500;
+                                        transition: all 0.3s ease;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Currency flag styling
+.currency-flag {
+    margin-right: 8px;
+    font-size: 16px;
+    display: inline-block;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        margin-right: 6px;
+    }
+}
+
+// Remove white gaps between sections
+body {
+    background-color: #000000 !important;
+}
+
+.main-wrapper {
+    background-color: #000000 !important;
+}
+
+section {
+    margin: 0 !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+}
+
+// Fix specific gaps between slider and sections
+.slider-area,
+.banner-area,
+.hero-area {
+    margin-bottom: 0 !important;
+}
+
+.category-area {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+// Ensure all containers have black background
+.container-fluid,
+.container {
+    background-color: transparent !important;
+}
+
+// Fix any remaining white spaces
+.tp-slider-area,
+.tpslider-area,
+.slider-wrapper {
+    background-color: #000000 !important;
+    margin-bottom: 0 !important;
+}
+
+// Target the specific gap between sections
+.main-wrapper > section:not(:first-child) {
+    border-top: none !important;
+    margin-top: 0 !important;
+}
+
+// FINAL SOLUTION: Mobile white gap fix - Target exact HTML structure
+@media (max-width: 768px) {
+    // STEP 1: Ensure slider has no bottom spacing
+    .tp-slider-area.full-width-slider {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    // STEP 2: Target the exact brands section that follows slider
+    section.category-area.pt-70.pb-30.scroll-animate.animate-fast.dark-theme-section.bg-black {
+        padding-top: 0 !important; // Remove pt-70 completely
+        margin-top: -20px !important; // Pull up to eliminate gap
+    }
+
+    // STEP 3: Fix the title section inside brands
+    section.category-area .tpsection.mb-40.text-center {
+        margin-top: 20px !important; // Replace the removed 60px with smaller margin
+        margin-bottom: 20px !important; // Reduce bottom margin
+    }
+
+    // STEP 4: Nuclear option - target by adjacent sibling selector
+    .tp-slider-area + section.category-area {
+        margin-top: -30px !important; // Strong negative margin to pull up
+        padding-top: 20px !important; // Small padding for breathing room
+    }
+
+    // STEP 5: Override any conflicting styles
+    .tp-slider-area + .category-area.pt-70 {
+        padding-top: 20px !important; // Override pt-70 with minimal padding
+        margin-top: -30px !important;
+    }
+
+    // STEP 6: Ensure main wrapper doesn't add spacing
+    main {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    // STEP 7: Container adjustments
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+// Remove any default margins from theme sections
+.pt-70 {
+    padding-top: 0 !important;
+}
+
+.pb-30 {
+    padding-bottom: 60px !important;
+}
+
+// Premium Add to Cart Button Styling - Always Visible with White BG and Black Text
+.tpproduct__cart {
+    position: static !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    bottom: auto !important;
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+    padding: 0 !important;
+    clear: both !important;
+    z-index: 10 !important;
+
+    a {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 12px 16px !important;
+        border-radius: 6px !important;
+        font-weight: 500 !important;
+        font-size: 13px !important;
+        text-decoration: none !important;
+        display: block !important;
+        text-align: center !important;
+        gap: 6px !important;
+        transition: none !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid #d0d0d0 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.3px !important;
+        width: 100% !important;
+
+        &:hover {
+            background: #ffffff !important;
+            color: #000000 !important;
+            transform: none !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+            border-color: #d0d0d0 !important;
+        }
+
+        i {
+            font-size: 16px !important;
+            color: #000000 !important;
+        }
+
+        span {
+            color: #000000 !important;
+        }
+    }
+}
+
+// Ensure proper spacing for product content and price info
+.tpproduct__content {
+    padding: 15px !important;
+
+    .tpproduct__priceinfo {
+        margin-top: 10px !important;
+        position: relative !important;
+        z-index: 1 !important;
+
+        .tpproduct__priceinfo-list {
+            margin-bottom: 20px !important;
+            display: block !important;
+            clear: both !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+    }
+}
+
+// Fix price text positioning to prevent overlap
+.tpproduct__priceinfo-list {
+    span {
+        display: inline-block !important;
+        margin-right: 8px !important;
+        position: relative !important;
+        z-index: 3 !important;
+    }
+}
+
+// Prevent any absolute positioning that causes overlap and price hiding
+.tpproduct__priceinfo {
+    position: static !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 5 !important;
+
+    &.p-relative {
+        position: relative !important;
+    }
+}
+
+// Fix price visibility on hover - prevent hiding
+.tpproduct:hover .tpproduct__priceinfo {
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    z-index: 5 !important;
+}
+
+// Ensure cart button is always below price
+.tpproduct__content {
+    .tpproduct__priceinfo {
+        .tpproduct__cart {
+            position: static !important;
+            margin-top: 20px !important;
+            clear: both !important;
+            display: block !important;
+        }
+    }
+}
+
+// Override product hover effects to keep cart button always visible
+.tpproduct {
+    &:hover {
+        .tpproduct__cart {
+            visibility: visible !important;
+            opacity: 1 !important;
+            bottom: auto !important;
+        }
+
+        .tpproduct__thumb-action {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    }
+}
+
+// FIXED product action icons - NO HOVER EFFECTS, WHITE BACKGROUND, BLACK ICONS
+.tpproduct__thumb-action {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+    align-items: flex-end !important; // Right align the icons
+
+    a {
+        background: #ffffff !important; // WHITE BACKGROUND FOR BLACK ICONS
+        color: #000000 !important; // BLACK ICONS
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: none !important; // NO TRANSITIONS
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        border: none !important;
+        pointer-events: auto !important; // Keep clickable
+
+        // COMPLETELY REMOVE ALL HOVER EFFECTS - FIXED STATE
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited,
+        &.active {
+            background: #ffffff !important; // SAME WHITE BACKGROUND
+            color: #000000 !important; // SAME BLACK ICONS
+            transform: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+            border: none !important;
+            outline: none !important;
+            opacity: 1 !important;
+        }
+
+        i, svg {
+            color: #000000 !important; // BLACK ICONS
+            font-size: 16px !important;
+            transition: none !important;
+
+            // BLACK ICONS ON ALL STATES
+            &:hover,
+            &:focus,
+            &:active {
+                color: #000000 !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    // Remove hover effects from container
+    &:hover {
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+// Fix mobile add to cart button - MATCH DESKTOP COLORS EXACTLY
+@media (max-width: 767px) {
+    .tpproduct__cart a,
+    .add-to-cart,
+    .button-quick-shop {
+        background: #ffffff !important; // White background like desktop
+        color: #000000 !important; // Black text like desktop
+        border: 1px solid #ffffff !important; // White border like desktop
+        padding: 12px 20px !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        font-size: 14px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        width: 100% !important;
+        text-align: center !important;
+        display: block !important;
+        text-decoration: none !important;
+
+        i, svg {
+            color: #000000 !important; // Black icons like desktop
+            margin-right: 8px !important;
+        }
+
+        span {
+            color: #000000 !important; // Black text like desktop
+            font-weight: 600 !important;
+        }
+
+        // Match desktop hover effects
+        &:hover {
+            background-color: #ffffff !important; // Keep white background
+            color: #000000 !important; // Keep black text
+            border-color: #ffffff !important; // Keep white border
+            transform: translateY(-2px) !important; // Subtle lift like desktop
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important; // Subtle shadow
+
+            i, svg {
+                color: #000000 !important; // Keep black icons
+            }
+
+            span {
+                color: #000000 !important; // Keep black text
+            }
+        }
+
+        // Smooth transitions like desktop
+        transition: all 0.3s ease !important;
+    }
+
+    // Ensure the cart container is properly positioned
+    .tpproduct__cart {
+        position: static !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        bottom: auto !important;
+        margin-top: 15px !important;
+        padding: 0 15px !important;
+    }
+    // Remove hover effects from entire product cart section on mobile
+    .tpproduct__cart {
+        &:hover {
+            background-color: inherit !important;
+            transform: none !important;
+        }
+
+        a {
+            transition: none !important;
+
+            &:hover {
+                background-color: inherit !important;
+                color: inherit !important;
+                transform: none !important;
+                box-shadow: inherit !important;
+            }
+        }
+    }
+
+    // Remove hover effects from entire product on mobile
+    .tpproduct {
+        &:hover {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        .tpproduct__thumb {
+            &:hover {
+                transform: none !important;
+            }
+
+            img {
+                &:hover {
+                    transform: none !important;
+                }
+            }
+        }
+    }
+
+    // MOBILE PRODUCT ACTION ICONS - MATCH DESKTOP STYLING (WHITE BACKGROUND, BLACK ICONS)
+    .tpproduct__thumb-action {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 10 !important;
+        align-items: flex-end !important;
+
+        a {
+            background: #ffffff !important; // WHITE BACKGROUND
+            color: #000000 !important; // BLACK ICONS
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            border: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+            transition: none !important;
+            text-decoration: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+
+            i, svg {
+                color: #000000 !important; // BLACK ICONS
+                font-size: 16px !important;
+                margin: 0 !important;
+            }
+
+            // Remove all hover effects completely - KEEP SAME COLORS
+            &:hover {
+                background: #ffffff !important; // KEEP WHITE BACKGROUND
+                color: #000000 !important; // KEEP BLACK ICONS
+                transform: none !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+                i, svg {
+                    color: #000000 !important; // KEEP BLACK ICONS
+                    transform: none !important;
+                }
+            }
+
+            // Disable any tooltips or title attributes
+            &[title] {
+                title: none !important;
+            }
+
+            // Remove transitions
+            transition: none !important;
+
+            // Hide any text spans that might appear
+            span {
+                display: none !important;
+            }
+        }
+
+        // Disable hover effects on the container
+        &:hover {
+            transform: none !important;
+        }
+    }
+
+    // Remove any tooltip or popup elements on mobile
+    .tooltip,
+    .popover,
+    [data-bs-toggle="tooltip"],
+    [data-toggle="tooltip"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    // Disable Bootstrap tooltips specifically
+    .tooltip.show {
+        display: none !important;
+    }
+
+    // Remove any hover text or labels that might appear
+    .tpproduct__thumb-action a::before,
+    .tpproduct__thumb-action a::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    // Disable any CSS-based hover tooltips
+    .tpproduct__thumb-action a[data-tooltip]::before,
+    .tpproduct__thumb-action a[data-tooltip]::after {
+        display: none !important;
+    }
+
+    // Remove any floating labels or text
+    .product-action-tooltip,
+    .action-tooltip,
+    .hover-text,
+    .product-hover-text {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+// GLOBAL REMOVAL OF ALL HOVER EFFECTS ON PRODUCT ICONS
+.tpproduct__thumb-action a,
+.whiteproduct__thumb-action a,
+.product-action-btn,
+.add-to-cart,
+.add-to-wishlist,
+.wishlist,
+.quickview,
+.button-quick-shop {
+    // Remove ALL transitions and animations
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+
+    // Fixed states - no changes on hover
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        scale: 1 !important;
+        opacity: 1 !important;
+    }
+
+    // Icons inside should also be fixed
+    i, svg {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            transition: none !important;
+            animation: none !important;
+            transform: none !important;
+            scale: 1 !important;
+        }
+    }
+}
+
+// APPLY SAME STYLING TO ALL PRODUCT CARD TYPES
+.whiteproduct__thumb-action,
+.tpproduct__action,
+.tpselectproduct__thumb .tpproduct__thumb-action {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+    align-items: flex-end !important;
+
+    a {
+        background: #ffffff !important; // WHITE BACKGROUND FOR BLACK ICONS
+        color: #000000 !important; // BLACK ICONS
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: none !important; // NO TRANSITIONS
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        border: none !important;
+        pointer-events: auto !important;
+
+        // COMPLETELY REMOVE ALL HOVER EFFECTS - FIXED STATE
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited,
+        &.active {
+            background: #ffffff !important; // SAME WHITE BACKGROUND
+            color: #000000 !important; // SAME BLACK ICONS
+            transform: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+            border: none !important;
+            outline: none !important;
+            opacity: 1 !important;
+        }
+
+        i, svg {
+            color: #000000 !important; // BLACK ICONS
+            font-size: 16px !important;
+            transition: none !important;
+
+            // BLACK ICONS ON ALL STATES
+            &:hover,
+            &:focus,
+            &:active {
+                color: #000000 !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    // Remove hover effects from container
+    &:hover {
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+
+
+// Fix add to cart button text - should be black
+.tpproduct__cart a {
+    color: #000000 !important;
+
+    span {
+        color: #000000 !important;
+    }
+}
+
+// Old discount flash styling removed - replaced with premium design below
+
+// Premium discount flash design - positioned on left with modern styling
+.tpproduct__thumb-discount,
+.tpproduct__thumb-topsall,
+.tpproduct__thumb-volt {
+    position: absolute !important;
+    top: 15px !important;
+    left: 15px !important; // Left aligned on product image
+    background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%) !important;
+    color: #ffffff !important;
+    padding: 8px 12px !important;
+    border-radius: 20px !important; // More rounded for premium look
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
+    border: none !important;
+    z-index: 15 !important;
+    animation: none !important; // Remove firefly animation for cleaner look
+
+    span {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    // Add a subtle glow effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+        border-radius: 22px;
+        z-index: -1;
+        opacity: 0.3;
+        filter: blur(4px);
+    }
+}
+
+// Mobile specific discount flash styling - MATCH DESKTOP RED COLOR
+@media (max-width: 767px) {
+    .tpproduct__thumb-discount,
+    .tpproduct__thumb-topsall,
+    .tpproduct__thumb-volt {
+        background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%) !important; // Same red as desktop
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important; // Same shadow as desktop
+
+        span {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        // Update glow effect for mobile to match desktop
+        &::before {
+            background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+        }
+    }
+
+    // Additional mobile discount flash fixes - UNIFIED WITH DESKTOP
+    .tpproduct__thumb {
+        .tpproduct__thumb-discount,
+        .tpproduct__thumb-topsall,
+        .tpproduct__thumb-volt {
+            background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%) !important; // Red like desktop
+            color: #ffffff !important;
+
+            span {
+                color: #ffffff !important;
+            }
+        }
+    }
+
+    // Ensure product cards match desktop dark theme
+    .dark-theme-section .tpproduct {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1) !important;
+        }
+    }
+
+    // Mobile product section title styling - match desktop
+    .product-area .tpsection__title {
+        color: #ffffff !important;
+        font-size: 28px !important;
+        font-weight: 700 !important;
+        margin-bottom: 30px !important;
+    }
+
+    // Mobile product tabs styling - match desktop
+    .tpnavbar .nav-tabs .nav-link {
+        color: #ffffff !important;
+        background: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 25px !important;
+        padding: 10px 20px !important;
+        margin-right: 10px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+
+        &.active,
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            color: #ffffff !important;
+        }
+    }
+
+    // Mobile product grid layout
+    .tab-content .row {
+        margin: 0 -10px !important;
+    }
+
+    .tab-content .col-lg-3,
+    .tab-content .col-md-6,
+    .tab-content .col-sm-6 {
+        padding: 0 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    // MOBILE HOME PAGE PRODUCTS - ENSURE WHITE BACKGROUND BLACK ICONS FOR VIEW/WISHLIST
+    .home-products .tpproduct__thumb-action,
+    .product-area.home-products .tpproduct__thumb-action {
+        a.quickview,
+        a.wishlist,
+        a.add-to-wishlist {
+            background: #ffffff !important; // WHITE BACKGROUND
+            color: #000000 !important; // BLACK ICONS
+            border: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+            i, svg {
+                color: #000000 !important; // BLACK ICONS
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: #ffffff !important; // KEEP WHITE BACKGROUND
+                color: #000000 !important; // KEEP BLACK ICONS
+
+                i, svg {
+                    color: #000000 !important; // KEEP BLACK ICONS
+                }
+            }
+        }
+    }
+
+    // FORCE MOBILE HOME PAGE PRODUCT ACTION BUTTONS TO MATCH DESKTOP
+    .home-products .tpproduct .tpproduct__thumb-action a,
+    .product-area.home-products .tpproduct .tpproduct__thumb-action a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK ICONS
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        transition: none !important;
+
+        i, svg {
+            color: #000000 !important; // BLACK ICONS
+            font-size: 16px !important;
+        }
+    }
+
+    // MOBILE RELATED PRODUCTS - MATCH HOME PAGE STYLING
+    .product-area.related-products .tpproduct__thumb-action,
+    .related-products .tpproduct__thumb-action {
+        a.quickview,
+        a.wishlist,
+        a.add-to-wishlist {
+            background: #ffffff !important; // WHITE BACKGROUND
+            color: #000000 !important; // BLACK ICONS
+            border: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+            i, svg {
+                color: #000000 !important; // BLACK ICONS
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: #ffffff !important; // KEEP WHITE BACKGROUND
+                color: #000000 !important; // KEEP BLACK ICONS
+
+                i, svg {
+                    color: #000000 !important; // KEEP BLACK ICONS
+                }
+            }
+        }
+    }
+
+    // FORCE MOBILE RELATED PRODUCTS ACTION BUTTONS TO MATCH HOME PAGE
+    .product-area.related-products .tpproduct .tpproduct__thumb-action a,
+    .related-products .tpproduct .tpproduct__thumb-action a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK ICONS
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        transition: none !important;
+
+        i, svg {
+            color: #000000 !important; // BLACK ICONS
+            font-size: 16px !important;
+        }
+    }
+
+    // MOBILE RELATED PRODUCTS ADD TO CART BUTTONS - MATCH HOME PAGE
+    .product-area.related-products .tpproduct__cart a,
+    .related-products .tpproduct__cart a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK TEXT
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+        i {
+            color: #000000 !important; // BLACK ICON
+        }
+
+        span {
+            color: #000000 !important; // BLACK TEXT
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: #ffffff !important; // KEEP WHITE BACKGROUND
+            color: #000000 !important; // KEEP BLACK TEXT
+
+            i, span {
+                color: #000000 !important; // KEEP BLACK
+            }
+        }
+    }
+
+    // SHOP PAGE PRODUCTS - MATCH HOME PAGE STYLING
+    .product-area.dark-theme-section.bg-black .tpproduct__thumb-action,
+    .dark-theme-section.bg-black .tpproduct__thumb-action {
+        a.quickview,
+        a.wishlist,
+        a.add-to-wishlist {
+            background: #ffffff !important; // WHITE BACKGROUND
+            color: #000000 !important; // BLACK ICONS
+            border: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+            i, svg {
+                color: #000000 !important; // BLACK ICONS
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: #ffffff !important; // KEEP WHITE BACKGROUND
+                color: #000000 !important; // KEEP BLACK ICONS
+
+                i, svg {
+                    color: #000000 !important; // KEEP BLACK ICONS
+                }
+            }
+        }
+    }
+
+    // FORCE SHOP PAGE PRODUCT ACTION BUTTONS TO MATCH HOME PAGE
+    .product-area.dark-theme-section.bg-black .tpproduct .tpproduct__thumb-action a,
+    .dark-theme-section.bg-black .tpproduct .tpproduct__thumb-action a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK ICONS
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        transition: none !important;
+
+        i, svg {
+            color: #000000 !important; // BLACK ICONS
+            font-size: 16px !important;
+        }
+    }
+
+    // SHOP PAGE ADD TO CART BUTTONS - MATCH HOME PAGE
+    .product-area.dark-theme-section.bg-black .tpproduct__cart a,
+    .dark-theme-section.bg-black .tpproduct__cart a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK TEXT
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+        i {
+            color: #000000 !important; // BLACK ICON
+        }
+
+        span {
+            color: #000000 !important; // BLACK TEXT
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: #ffffff !important; // KEEP WHITE BACKGROUND
+            color: #000000 !important; // KEEP BLACK TEXT
+
+            i, span {
+                color: #000000 !important; // KEEP BLACK
+            }
+        }
+    }
+}
+
+// Force price visibility and CENTER alignment - prevent any hover effects from hiding price
+.tpproduct__priceinfo-list {
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    z-index: 10 !important;
+    display: block !important;
+    text-align: center !important; // Center the price
+
+    span {
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: inline-block !important;
+        position: static !important;
+    }
+}
+
+// Center the entire price info section
+.tpproduct__priceinfo {
+    text-align: center !important;
+}
+
+// Center product content including price
+.tpproduct__content {
+    text-align: center !important;
+}
+
+// Override any hover effects that might hide price
+.tpproduct:hover {
+    .tpproduct__priceinfo-list {
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+        z-index: 10 !important;
+
+        span {
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: inline-block !important;
+        }
+    }
+}
+
+// Remove this conflicting styling - we already have the correct styling above
+
+// Professional search container spacing
+.professional-search-container {
+    margin-right: 20px;
+
+    @media (max-width: 1200px) {
+        margin-right: 15px;
+
+        .professional-search-bar {
+            width: 240px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        margin-right: 10px;
+
+        .professional-search-bar {
+            width: 200px;
+        }
+    }
+}
+
+// Mobile search results positioning fix
+.mobile-search-bar {
+    position: relative;
+
+    .panel--search-result {
+        &.active {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0);
+        }
+    }
+}
+
+// Ensure mobile sidebar has proper stacking
+.tpsideinfo {
+    .mobile-search-bar {
+        .panel--search-result {
+            position: relative !important;
+            z-index: 9999 !important;
+
+            &.active {
+                display: block !important;
+            }
+        }
+    }
+}
+
+// Enhanced mobile search results overlay
+.mobile-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99998;
+    backdrop-filter: blur(5px);
+    display: none;
+
+    &.active {
+        display: block;
+        animation: fadeIn 0.3s ease-out;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Mobile specific dark theme fixes
+@media (max-width: 768px) {
+    .dark-theme-section {
+        &.bg-black, &.bg-grey {
+            // Fix any white backgrounds on mobile
+            * {
+                background-color: transparent !important;
+            }
+
+            .container, .row, .col-12, .col-md-12, .col-lg-12 {
+                background: transparent !important;
+            }
+
+            // Ensure mobile slider content has dark background
+            .tp-slide-item {
+                background: transparent !important;
+            }
+
+            .tp-slide-item__content {
+                background: transparent !important;
+            }
+        }
+    }
+
+    // Fix mobile banner backgrounds
+    .banner-overlay {
+        background: rgba(0,0,0,0.6) !important;
+    }
+
+    // Additional mobile gap fixes
+    section + section {
+        margin-top: 0 !important;
+        border-top: none !important;
+    }
+
+    // SIMPLIFIED: Clean up any remaining gaps
+    .tp-slider-area + section {
+        margin-top: -30px !important; // Strong pull up
+        padding-top: 20px !important; // Minimal breathing room
+    }
+
+    // Remove any default body/html spacing on mobile
+    body, html {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
+// Mobile Menu Toggle Button - White Icon, No Background (matching cart button size)
+.tp-menu-toggle {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+
+    &:hover {
+        transform: scale(1.1) !important;
+    }
+
+    // Style for the custom SVG icon
+    .menu-toggle-icon {
+        width: 24px !important;
+        height: 24px !important;
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+        transition: all 0.3s ease !important;
+    }
+
+    &:hover .menu-toggle-icon {
+        color: #f0f0f0 !important;
+        stroke: #f0f0f0 !important;
+    }
+
+    // Legacy icon support (if any old icons remain)
+    i {
+        color: #ffffff !important;
+        font-size: 20px !important;
+    }
+}
+
+// Mobile Header Cart Button - White Icon with Black Count Badge
+.mobile-header-cart {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    z-index: 999 !important;
+
+    &:hover {
+        transform: scale(1.1) !important;
+    }
+
+    // Style for the cart SVG icon
+    .mobile-cart-icon {
+        width: 24px !important;
+        height: 24px !important;
+        color: #ffffff !important;
+        stroke: #ffffff !important;
+        fill: none !important;
+        transition: all 0.3s ease !important;
+        display: block !important;
+    }
+
+    &:hover .mobile-cart-icon {
+        color: #f0f0f0 !important;
+        stroke: #f0f0f0 !important;
+    }
+
+    // Cart count badge - black background with white text
+    .mobile-cart-count {
+        display: inline-block !important;
+        height: 18px !important;
+        width: 18px !important;
+        line-height: 18px !important;
+        border-radius: 50% !important;
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+        position: absolute !important;
+        top: -2px !important;
+        right: -2px !important;
+        z-index: 10 !important;
+        border: 1px solid #ffffff !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    }
+}
+
+// Fix mobile header alignment - ensure all elements are on same line
+.tp-md-lg-header.d-md-none {
+    .row.align-items-center {
+        align-items: center !important;
+        min-height: 60px !important;
+    }
+
+    .col-3 {
+        display: flex !important;
+        align-items: center !important;
+        height: 60px !important;
+
+        &:first-child {
+            justify-content: flex-start !important;
+        }
+
+        &:last-child {
+            justify-content: flex-end !important;
+        }
+    }
+
+    .col-6 {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 60px !important;
+    }
+
+    .header-meta-info {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .header-canvas {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+    }
+
+    .logo {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 100% !important;
+    }
+}
+
+// Mobile Tab Icons - Heroicons Styling (Black Icons)
+.mobile-tab-icon {
+    width: 24px !important;
+    height: 24px !important;
+    stroke: #000000 !important;
+    fill: none !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    transition: all 0.3s ease !important;
+    color: #000000 !important;
+}
+
+// Mobile Navigation Bar Styling
+.navigation-bar {
+    &__list {
+        li {
+            a {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-decoration: none !important;
+                color: #000000 !important;
+                transition: all 0.3s ease !important;
+
+                &:hover {
+                    color: #333333 !important;
+                    transform: translateY(-2px) !important;
+
+                    .mobile-tab-icon {
+                        stroke: #333333 !important;
+                        color: #333333 !important;
+                        transform: scale(1.1) !important;
+                    }
+                }
+
+                span {
+                    font-size: 12px !important;
+                    font-weight: 500 !important;
+                    margin-top: 4px !important;
+                    color: inherit !important;
+                }
+
+                .header-cart {
+                    position: relative !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+
+                    .mobile-tab-icon {
+                        color: #000000 !important;
+                        stroke: #000000 !important;
+                    }
+
+                    .tp-product-count {
+                        position: absolute !important;
+                        top: -8px !important;
+                        right: -8px !important;
+                        background-color: #000000 !important;
+                        color: #ffffff !important;
+                        border-radius: 50% !important;
+                        width: 18px !important;
+                        height: 18px !important;
+                        font-size: 11px !important;
+                        font-weight: 600 !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        line-height: 1 !important;
+                        border: 1px solid #ffffff !important;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Shop Page Dark Theme Styling (matching home page products)
+.product-area.dark-theme-section.bg-black {
+    background-color: #000000 !important;
+
+    // Filter and navigation styling
+    .product-filter-content {
+        .product-item-count span {
+            color: #ffffff !important;
+        }
+
+        .tp-shop-selector select {
+            background-color: #333333 !important;
+            color: #ffffff !important;
+            border: 1px solid #555555 !important;
+
+            option {
+                background-color: #333333 !important;
+                color: #ffffff !important;
+            }
+        }
+
+        .nav-tabs .nav-link {
+            color: #ffffff !important;
+            border: 1px solid #555555 !important;
+            background-color: transparent !important;
+
+            &:hover, &.active {
+                background-color: #333333 !important;
+                border-color: #ffffff !important;
+                color: #ffffff !important;
+            }
+
+            i {
+                color: inherit !important;
+            }
+        }
+    }
+
+    // Filter Sidebar Black Background Styling
+    .product-filter-mobile__inner {
+        background-color: #000000 !important;
+    }
+
+    .tpsidebar.product-sidebar__product-category {
+        background-color: #000000 !important;
+
+        .product-sidebar {
+            background-color: #000000 !important;
+        }
+    }
+}
+
+// Shop Page Filter Styling
+.product-area.dark-theme-section.bg-black {
+    // Filter button styling
+    .product-filter-button {
+        background-color: #333333 !important;
+        color: #ffffff !important;
+        border: 1px solid #555555 !important;
+
+        &:hover {
+            background-color: #555555 !important;
+        }
+    }
+
+    // Mobile filter styling
+    .product-filter-mobile {
+        .product-filter-mobile__inner {
+            background-color: #000000 !important;
+
+            .product-filter-mobile__header {
+                background-color: #333333 !important;
+                color: #ffffff !important;
+
+                h5 {
+                    color: #ffffff !important;
+                }
+
+                .close-product-filter-mobile {
+                    color: #ffffff !important;
+                }
+            }
+
+            .product-filter-mobile__content {
+                background-color: #000000 !important;
+
+                * {
+                    color: #ffffff !important;
+                }
+            }
+        }
+    }
+}
+
+// Shop Page Pagination styling
+.product-area.dark-theme-section.bg-black .pagination {
+    .page-link {
+        background-color: #333333 !important;
+        color: #ffffff !important;
+        border: 1px solid #555555 !important;
+
+        &:hover {
+            background-color: #555555 !important;
+            color: #ffffff !important;
+        }
+    }
+
+    .page-item.active .page-link {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-color: #ffffff !important;
+    }
+}
+
+// Blog Page White Background Override
+.postbox-area {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+    // Override any dark theme styles for blog content
+    * {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+
+    // Ensure main content area has white background
+    .container {
+        background-color: #ffffff !important;
+    }
+
+    // Blog post styling
+    .postbox__item {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: none !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+
+        .postbox__content {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            padding: 20px !important;
+
+            .postbox__meta {
+                span {
+                    color: #666666 !important;
+
+                    i {
+                        color: var(--primary-color) !important;
+                    }
+                }
+            }
+
+            .postbox__title {
+                a {
+                    color: #000000 !important;
+
+                    &:hover {
+                        color: var(--primary-color) !important;
+                    }
+                }
+            }
+
+            .postbox__text {
+                p {
+                    color: #666666 !important;
+                }
+            }
+        }
+    }
+
+    // Sidebar styling
+    .sidebar__wrapper {
+        background-color: #ffffff !important;
+
+        .sidebar__widget {
+            background-color: #f8f9fa !important;
+            border-radius: 8px !important;
+            padding: 20px !important;
+            margin-bottom: 30px !important;
+            border: 1px solid #e9ecef !important;
+
+            .sidebar__widget-title {
+                color: #000000 !important;
+                border-bottom: 2px solid var(--primary-color) !important;
+                padding-bottom: 10px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .sidebar__widget-content {
+                * {
+                    color: #000000 !important;
+                }
+
+                a {
+                    color: #666666 !important;
+
+                    &:hover {
+                        color: var(--primary-color) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // Pagination styling for blog
+    .pagination {
+        .page-link {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border: 1px solid #dee2e6 !important;
+
+            &:hover {
+                background-color: var(--primary-color) !important;
+                color: #ffffff !important;
+                border-color: var(--primary-color) !important;
+            }
+        }
+
+        .page-item.active .page-link {
+            background-color: var(--primary-color) !important;
+            color: #ffffff !important;
+            border-color: var(--primary-color) !important;
+        }
+    }
+}
+
+// Cart Page White Background Override
+.cart-area {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+    // Override any dark theme styles for cart content
+    * {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+
+    // Ensure main content area has white background
+    .container {
+        background-color: #ffffff !important;
+    }
+
+    // Cart table styling
+    .table-content {
+        background-color: #ffffff !important;
+
+        table {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+
+            th {
+                background-color: #f8f9fa !important;
+                color: #000000 !important;
+                font-weight: 600 !important;
+            }
+
+            td {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                border-color: #dee2e6 !important;
+
+                .product-name a {
+                    color: #000000 !important;
+
+                    &:hover {
+                        color: var(--primary-color) !important;
+                    }
+                }
+
+                .product-subtotal {
+                    color: #000000 !important;
+                    font-weight: 600 !important;
+                }
+            }
+        }
+    }
+
+    // Cart totals section
+    .cart-page-total {
+        background-color: #ffffff !important;
+
+        h2 {
+            color: #000000 !important;
+        }
+
+        ul {
+            background-color: #ffffff !important;
+            border-color: #dee2e6 !important;
+
+            li {
+                background-color: #ffffff !important;
+                color: #666666 !important;
+                border-color: #dee2e6 !important;
+
+                span {
+                    color: #000000 !important;
+                    font-weight: 600 !important;
+                }
+
+                &:last-child {
+                    background-color: #f8f9fa !important;
+                    font-weight: 600 !important;
+
+                    span {
+                        color: var(--primary-color) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // Coupon section
+    .coupon-all {
+        background-color: #ffffff !important;
+
+        #coupon_code {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #dee2e6 !important;
+
+            &:focus {
+                border-color: var(--primary-color) !important;
+            }
+        }
+    }
+
+    // Cart buttons
+    .tp-btn, .btn {
+        &:not(.btn-primary) {
+            background-color: #f8f9fa !important;
+            color: #000000 !important;
+            border-color: #dee2e6 !important;
+
+            &:hover {
+                background-color: var(--primary-color) !important;
+                color: #ffffff !important;
+                border-color: var(--primary-color) !important;
+            }
+        }
+    }
+
+    // Quantity controls
+    .product-quantity {
+        .cart-plus, .cart-minus {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #dee2e6 !important;
+
+            &:hover {
+                background-color: var(--primary-color) !important;
+                color: #ffffff !important;
+                border-color: var(--primary-color) !important;
+            }
+        }
+
+        .cart-input {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #dee2e6 !important;
+        }
+    }
+}
+
+// About Page and General Page Content White Background Override
+.about-area, .ck-content {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+    // Override any dark theme styles
+    * {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+
+    // Ensure main content area has white background
+    .container {
+        background-color: #ffffff !important;
+    }
+
+    // Typography styling for white background
+    h1, h2, h3, h4, h5, h6 {
+        color: #000000 !important;
+    }
+
+    p {
+        color: #666666 !important;
+    }
+
+    a {
+        color: var(--primary-color) !important;
+
+        &:hover {
+            color: #000000 !important;
+        }
+    }
+}
+
+// FALLBACK FIX: More specific override for browsers that don't support :has()
+main .pt-80.pb-80 .container .image-text-section,
+main .pt-80.pb-80 .image-text-section,
+.pt-80.pb-80 .image-text-section {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// ULTIMATE DESKTOP FIX: Override the pt-80 pb-80 white background specifically on desktop
+@media (min-width: 769px) {
+    // Target the main wrapper that contains image-text-section
+    main .pt-80.pb-80 {
+        background-color: #000000 !important;
+
+        // But only if it contains image-text-section
+        .image-text-section {
+            background-color: #000000 !important;
+            background-image: none !important;
+            background: #000000 !important;
+        }
+
+        // CRITICAL: Force container to have black background when it contains image-text-section
+        .container {
+            background-color: #000000 !important;
+            background-image: none !important;
+            background: #000000 !important;
+        }
+
+    }
+}
+
+// About section specific styling
+.about-area, .pt-80.pb-80 {
+    // About section specific styling
+    .tpabout__inner-title-area {
+        background-color: #ffffff !important;
+
+        .tpabout__inner-sub-title {
+            color: var(--primary-color) !important;
+        }
+
+        .tpabout__inner-title {
+            color: #000000 !important;
+        }
+    }
+
+    .tpabout__inner-story, .tpabout__inner-story-2 {
+        background-color: #ffffff !important;
+
+        p {
+            color: #666666 !important;
+        }
+    }
+
+    // Form elements on white background
+    input, textarea, select {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-color: #dee2e6 !important;
+
+        &:focus {
+            border-color: var(--primary-color) !important;
+        }
+
+        &::placeholder {
+            color: #999999 !important;
+        }
+    }
+}
+
+// Contact Page White Background Override
+.contact-area {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+    // Override any dark theme styles
+    * {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+
+    // Ensure main content area has white background
+    .container {
+        background-color: #ffffff !important;
+    }
+
+    // Contact info section styling
+    .tpcontact__right {
+        background-color: #ffffff !important;
+
+        .tpcontact__shop {
+            background-color: #f8f9fa !important;
+            padding: 30px !important;
+            border-radius: 8px !important;
+            border: 1px solid #e9ecef !important;
+
+            .tpshop__title {
+                color: #000000 !important;
+                border-bottom: 2px solid var(--primary-color) !important;
+                padding-bottom: 10px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .tpshop__info {
+                ul {
+                    li {
+                        color: #666666 !important;
+                        margin-bottom: 15px !important;
+
+                        i {
+                            color: var(--primary-color) !important;
+                            margin-right: 10px !important;
+                        }
+
+                        a {
+                            color: #666666 !important;
+
+                            &:hover {
+                                color: var(--primary-color) !important;
+                            }
+                        }
+
+                        span {
+                            color: #666666 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tpcontact__support {
+            background-color: #ffffff !important;
+            margin-top: 20px !important;
+
+            a {
+                background-color: var(--primary-color) !important;
+                color: #ffffff !important;
+                padding: 12px 24px !important;
+                border-radius: 6px !important;
+                text-decoration: none !important;
+                display: inline-block !important;
+                margin-bottom: 10px !important;
+                margin-right: 10px !important;
+                transition: all 0.3s ease !important;
+
+                &:hover {
+                    background-color: #000000 !important;
+                    color: #ffffff !important;
+                    transform: translateY(-2px) !important;
+                }
+            }
+        }
+    }
+
+    // Contact form section styling
+    .tpcontact__form {
+        background-color: #ffffff !important;
+
+        .tpcontact__info {
+            background-color: #ffffff !important;
+
+            .tpcontact__title {
+                color: #000000 !important;
+            }
+
+            p {
+                color: #666666 !important;
+            }
+        }
+
+        // Form styling
+        form {
+            background-color: #ffffff !important;
+
+            .form-group, .mb-3, .mb-4 {
+                margin-bottom: 20px !important;
+
+                label {
+                    color: #000000 !important;
+                    font-weight: 600 !important;
+                    margin-bottom: 8px !important;
+                    display: block !important;
+                }
+
+                input, textarea, select {
+                    background-color: #ffffff !important;
+                    color: #000000 !important;
+                    border: 2px solid #e9ecef !important;
+                    border-radius: 6px !important;
+                    padding: 12px 16px !important;
+                    width: 100% !important;
+                    transition: all 0.3s ease !important;
+
+                    &:focus {
+                        border-color: var(--primary-color) !important;
+                        box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25) !important;
+                        outline: none !important;
+                    }
+
+                    &::placeholder {
+                        color: #999999 !important;
+                    }
+                }
+
+                textarea {
+                    min-height: 120px !important;
+                    resize: vertical !important;
+                }
+            }
+
+            // Submit button styling
+            .tp-btn, .btn, button[type="submit"] {
+                background-color: var(--primary-color) !important;
+                color: #ffffff !important;
+                border: 2px solid var(--primary-color) !important;
+                padding: 12px 30px !important;
+                border-radius: 6px !important;
+                font-weight: 600 !important;
+                text-transform: uppercase !important;
+                letter-spacing: 0.5px !important;
+                transition: all 0.3s ease !important;
+                cursor: pointer !important;
+
+                &:hover {
+                    background-color: #000000 !important;
+                    border-color: #000000 !important;
+                    color: #ffffff !important;
+                    transform: translateY(-2px) !important;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+                }
+
+                &:focus {
+                    outline: none !important;
+                    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25) !important;
+                }
+            }
+        }
+    }
+}
+
+// Consistent Dark Theme Implementation
+body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+// Main content areas
+main, .main-content {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+// Section backgrounds - alternating pattern
+.dark-theme-section {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+
+    &.bg-black {
+        background-color: #000000 !important;
+    }
+
+    &.bg-grey {
+        background-color: #1a1a1a !important;
+    }
+}
+
+// White background sections (cart, about pages)
+.light-theme-section {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #000000 !important;
+    }
+
+    p, li, span, div {
+        color: #333333 !important;
+    }
+}
+
+// Container styling
+.container, .container-fluid {
+    background-color: transparent !important;
+}
+
+// Typography for dark sections
+.dark-theme-section {
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+    }
+
+    p, li, span, div {
+        color: #cccccc !important;
+    }
+
+    a {
+        color: var(--primary-color) !important;
+
+        &:hover {
+            color: var(--primary-color) !important;
+        }
+    }
+}
+
+// Content Styling for Dark Theme
+.dark-theme-section {
+    // Lists styling
+    ul, ol {
+        li {
+            color: #cccccc !important;
+            margin-bottom: 8px !important;
+
+            &::marker {
+                color: var(--primary-color) !important;
+            }
+        }
+    }
+
+    // Tables styling (if any)
+    table {
+        background-color: #111111 !important;
+        border-collapse: collapse !important;
+
+        th {
+            background-color: #222222 !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            padding: 12px !important;
+            border: 1px solid #444444 !important;
+        }
+
+        td {
+            background-color: #111111 !important;
+            color: #cccccc !important;
+            padding: 12px !important;
+            border: 1px solid #444444 !important;
+        }
+    }
+
+    // Blockquotes styling
+    blockquote {
+        background-color: #222222 !important;
+        border-left: 4px solid var(--primary-color) !important;
+        padding: 20px !important;
+        margin: 20px 0 !important;
+        border-radius: 0 6px 6px 0 !important;
+
+        p {
+            color: #ffffff !important;
+            font-style: italic !important;
+            margin-bottom: 0 !important;
+        }
+    }
+
+    // Code blocks styling
+    pre, code {
+        background-color: #222222 !important;
+        color: #ffffff !important;
+        border: 1px solid #444444 !important;
+        border-radius: 4px !important;
+        padding: 8px 12px !important;
+    }
+
+    pre {
+        padding: 16px !important;
+        overflow-x: auto !important;
+    }
+}
+
+// Remove Breadcrumb Section Completely
+.breadcrumb__area {
+    display: none !important;
+}
+
+// Ensure Black Backgrounds for Home Page Sections
+.category-area.dark-theme-section.bg-black,
+.product-area.dark-theme-section.bg-black {
+    background-color: #000000 !important;
+
+    // Ensure all text is white
+    .tpsection__title {
+        color: #ffffff !important;
+
+        span {
+            color: #ffffff !important;
+        }
+    }
+
+    // Category and brand titles
+    .tpcategory__title a,
+    .brand-item .tpcategory__title a {
+        color: #ffffff !important;
+
+        &:hover {
+            color: #ffffff !important;
+        }
+    }
+
+    // Navigation tabs for products
+    .nav-tabs .nav-link {
+        color: #ffffff !important;
+        border: 1px solid #555555 !important;
+        background-color: transparent !important;
+
+        &:hover, &.active {
+            background-color: #333333 !important;
+            border-color: #ffffff !important;
+            color: #ffffff !important;
+        }
+    }
+
+    // Ensure proper spacing and layout
+    .container {
+        background-color: transparent !important;
+    }
+
+    // Product cards within these sections
+    .tpproduct {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        // Add to cart button - MATCH DESKTOP STYLING
+        .add-to-cart,
+        .button-quick-shop,
+        .tpproduct__cart a {
+            background: #ffffff !important; // White background like desktop
+            color: #000000 !important; // Black text like desktop
+            border: 1px solid #ffffff !important; // White border like desktop
+
+            span {
+                color: #000000 !important; // Black text like desktop
+            }
+
+            i, svg {
+                color: #000000 !important; // Black icons like desktop
+            }
+        }
+    }
+}
+
+// Add to Cart Button - UNIFIED DESKTOP COLORS FOR ALL DEVICES
+.add-to-cart,
+.button-quick-shop,
+.tpproduct__cart a {
+    background: #ffffff !important; // White background like desktop
+    color: #000000 !important; // Black text like desktop
+    border: 1px solid #ffffff !important; // White border like desktop
+
+    span {
+        color: #000000 !important; // Black text like desktop
+        font-weight: 600 !important;
+    }
+
+    i, svg {
+        color: #000000 !important; // Black icons like desktop
+    }
+}
+
+// Make add to cart button always visible (no hover required)
+.tpproduct__cart {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+}
+
+// Override any hover effects that might hide the cart button
+.tpproduct:hover .tpproduct__cart,
+.tpproduct .tpproduct__cart {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    display: block !important;
+}
+
+// Ensure cart button is always visible on mobile too
+@media (max-width: 767px) {
+    .tpproduct__cart {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        display: block !important;
+    }
+}
+
+// Banner Content Black Background
+.banner-content {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 40px !important;
+    border-radius: 12px !important;
+
+    .banner-subtitle, .banner-title {
+        color: #ffffff !important;
+    }
+}
+
+// Desktop-specific full banner section fixes
+@media (min-width: 769px) {
+    .full-banner-section {
+        background-color: #000000 !important;
+        background-image: none !important;
+
+        // Ensure all child elements have transparent backgrounds
+        * {
+            background-color: transparent !important;
+        }
+
+        // Override any container backgrounds
+        .container, .row, .col-12, .col-md-12, .col-lg-12, .col-lg-8, .col-md-10 {
+            background-color: transparent !important;
+        }
+
+        // Ensure banner content has solid black background on desktop
+        .banner-content {
+            background-color: #000000 !important; // Solid black instead of semi-transparent
+            padding: 60px 40px !important;
+            border-radius: 0 !important; // Remove border radius for full coverage
+        }
+    }
+
+    // Force dark theme section backgrounds on desktop
+    .dark-theme-section.bg-black {
+        background-color: #000000 !important;
+        background-image: none !important;
+
+        &.full-banner-section {
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+    }
+}
+
+// Enhanced Product Card Styling for All Pages
+.tpproduct {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid #333333 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden !important;
+    backdrop-filter: blur(10px) !important;
+
+    &:hover {
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-5px) !important;
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .tpproduct__thumb {
+        position: relative !important;
+        overflow: hidden !important;
+
+        img {
+            transition: transform 0.3s ease !important;
+        }
+
+        &:hover img {
+            transform: scale(1.05) !important;
+        }
+    }
+
+    .tpproduct__title a {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        display: block !important;
+        margin-bottom: 8px !important;
+
+        &:hover {
+            color: #ffffff !important;
+        }
+    }
+
+    .tpproduct__price {
+        text-align: center !important;
+        margin-bottom: 15px !important;
+
+        .new-price {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            font-size: 20px !important;
+            display: block !important;
+        }
+
+        .old-price {
+            color: #999999 !important;
+            text-decoration: line-through !important;
+            font-size: 16px !important;
+            margin-left: 8px !important;
+        }
+    }
+
+    // Enhanced Add to cart button - UNIFIED DESKTOP COLORS
+    .tp-btn,
+    .add-to-cart-btn,
+    .add-to-cart,
+    .button-quick-shop,
+    .tpproduct__cart a {
+        background-color: #ffffff !important; // White background like desktop
+        color: #000000 !important; // Black text like desktop
+        border: 1px solid #ffffff !important; // White border like desktop
+        padding: 12px 24px !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        font-size: 14px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+        cursor: pointer !important;
+        text-align: center !important;
+        text-decoration: none !important;
+
+        span {
+            color: #000000 !important; // Black text like desktop
+            font-weight: 600 !important;
+        }
+
+        i, svg {
+            color: #000000 !important; // Black icons like desktop
+            margin-right: 8px !important;
+        }
+
+        &:hover {
+            background-color: #ffffff !important; // Keep white background
+            color: #000000 !important; // Keep black text
+            border-color: #ffffff !important; // Keep white border
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+
+            span {
+                color: #000000 !important; // Keep black text
+            }
+
+            i, svg {
+                color: #000000 !important; // Keep black icons
+            }
+        }
+    }
+
+    // Product action icons styling
+    .tpproduct__action {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+
+        .action-btn {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: #000000 !important;
+            border: none !important;
+            width: 42px !important;
+            height: 42px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s ease !important;
+            backdrop-filter: blur(10px) !important;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.9) !important;
+                color: #000000 !important;
+                transform: scale(1.1) !important;
+            }
+
+            i {
+                color: inherit !important;
+                font-size: 16px !important;
+            }
+        }
+    }
+
+    // Enhanced discount flash - UNIFIED RED COLOR FOR ALL DEVICES
+    .tpproduct__thumb .tpproduct__discount,
+    .tpproduct__thumb .tpproduct__thumb-discount,
+    .tpproduct__thumb .tpproduct__thumb-topsall,
+    .tpproduct__thumb .tpproduct__thumb-volt {
+        background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%) !important; // Unified red color
+        color: #ffffff !important;
+        padding: 8px 12px !important;
+        border-radius: 20px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        position: absolute !important;
+        top: 15px !important;
+        left: 15px !important;
+        z-index: 15 !important;
+        box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
+        border: none !important;
+
+        span {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+    }
+}
+
+// Enhanced Section Title Styling
+.tpsection__title {
+    color: #ffffff !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 36px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 50px !important;
+    position: relative !important;
+
+    @media (max-width: 768px) {
+        font-size: 28px !important;
+        margin-bottom: 30px !important;
+    }
+
+    span {
+        color: #ffffff !important;
+        position: relative !important;
+
+        &::after {
+            content: '🦋' !important;
+            position: absolute !important;
+            right: -30px !important;
+            top: -5px !important;
+            font-size: 20px !important;
+            animation: flutter 2s ease-in-out infinite !important;
+        }
+    }
+
+    &::before {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 80px !important;
+        height: 3px !important;
+        background: linear-gradient(90deg, transparent, var(--primary-color), transparent) !important;
+        border-radius: 2px !important;
+    }
+}
+
+@keyframes flutter {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-3px) rotate(-5deg); }
+    50% { transform: translateY(-5px) rotate(0deg); }
+    75% { transform: translateY(-3px) rotate(5deg); }
+}
+
+// Category Icon Styling
+.tpcategory__icon {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 20px !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden !important;
+
+    &:hover {
+        transform: scale(1.05) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1) !important;
+    }
+
+    img {
+        width: 80px !important;
+        height: 80px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+    }
+
+    i {
+        font-size: 40px !important;
+        color: #ffffff !important;
+    }
+}
+
+.tpcategory__title a {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-align: center !important;
+    display: block !important;
+    margin-top: 15px !important;
+
+    &:hover {
+        color: #ffffff !important;
+    }
+}
+
+// Enhanced Brand Section Styling
+.brands-layout {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 40px !important;
+    margin-top: 40px !important;
+
+    @media (max-width: 768px) {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .brand-item {
+        flex: 1 !important;
+        text-align: center !important;
+        padding: 40px 20px !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 16px !important;
+        transition: all 0.3s ease !important;
+        backdrop-filter: blur(10px) !important;
+
+        &:hover {
+            transform: translateY(-10px) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .tpcategory__icon {
+            width: 150px !important;
+            height: 150px !important;
+            margin: 0 auto 25px !important;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08)) !important;
+            border: 3px solid rgba(255, 255, 255, 0.3) !important;
+
+            img {
+                width: 100px !important;
+                height: 100px !important;
+                object-fit: contain !important;
+                filter: brightness(1.1) !important;
+            }
+        }
+
+        .tpcategory__title a {
+            font-size: 24px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            color: #ffffff !important;
+            margin-top: 20px !important;
+
+            &:hover {
+                color: #ffffff !important;
+            }
+        }
+    }
+}
+
+// Mobile Brand Layout
+@media (max-width: 768px) {
+    .brands-layout .brand-item {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+}
+
+// Scroll Animation Styles
+.scroll-animate {
+    opacity: 0 !important;
+    transform: translateY(50px) !important;
+    transition: all 0.8s ease !important;
+
+    &.animate-fast {
+        transition: all 0.6s ease !important;
+    }
+
+    &.animate-slow {
+        transition: all 1.2s ease !important;
+    }
+
+    &.in-view {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+}
+
+// Section Spacing Improvements
+.dark-theme-section {
+    padding: 80px 0 !important;
+    margin: 0 !important;
+
+    @media (max-width: 768px) {
+        padding: 60px 0 !important;
+    }
+
+    &.pt-30 {
+        padding-top: 80px !important;
+    }
+
+    &.pb-30 {
+        padding-bottom: 80px !important;
+    }
+
+    &.pt-70 {
+        padding-top: 100px !important;
+    }
+
+    &.pb-70 {
+        padding-bottom: 100px !important;
+    }
+}
+
+// Button Hover Effects Enhancement
+.tp-btn {
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+
+    &::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+        transition: left 0.5s ease !important;
+        z-index: -1 !important;
+    }
+
+    &:hover::before {
+        left: 100% !important;
+    }
+}
+
+// Banner Button Styling
+.banner-button {
+    .tp-btn {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 2px solid #ffffff !important;
+
+        &:hover {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border-color: #ffffff !important;
+        }
+    }
+}
+
+// Promo Content - Remove White Background and Fix Overlays
+.promo-content {
+    background-color: transparent !important;
+
+    h5, h3, p {
+        background: transparent !important;
+        padding: 0 !important;
+    }
+}
+
+// Desktop-specific promo banner fixes
+@media (min-width: 769px) {
+    .promo-banner-section {
+        // Keep inner elements transparent but not the main section
+        .container, .row, [class*="col-"] {
+            background-color: transparent !important;
+        }
+
+        // Remove any pseudo-elements that might create overlays
+        &::before, &::after,
+        *::before, *::after {
+            display: none !important;
+            background: none !important;
+            content: none !important;
+        }
+
+        // Override any Bootstrap or theme backgrounds
+        .container, .row, [class*="col-"] {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+
+        // Ensure proper z-index stacking
+        .promo-content {
+            position: relative !important;
+            z-index: 10 !important;
+            background-color: transparent !important;
+
+            // Desktop text styling with better contrast
+            .promo-subtitle,
+            .promo-title,
+            .promo-description {
+                background-color: rgba(0, 0, 0, 0.8) !important;
+                color: #ffffff !important;
+                backdrop-filter: blur(8px) !important;
+                -webkit-backdrop-filter: blur(8px) !important;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+        }
+
+        // Button styling
+        .promo-button {
+            .tp-btn {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                border: 2px solid #ffffff !important;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.9) !important;
+                    color: #000000 !important;
+                    border-color: #ffffff !important;
+                }
+            }
+        }
+    }
+}
+
+// Universal Promo Banner Fixes (All Devices)
+.promo-banner-section {
+    // Remove any pseudo-elements that might create overlays
+    &::before, &::after,
+    *::before, *::after {
+        display: none !important;
+        background: none !important;
+    }
+
+    // Ensure proper z-index stacking for content elements only
+    .promo-content {
+        position: relative !important;
+        z-index: 10 !important;
+        background-color: transparent !important;
+    }
+
+    // Keep inner elements transparent but not the main section
+    .container, .row, [class*="col-"] {
+        background-color: transparent !important;
+    }
+}
+
+// Promo banner bottom center positioning
+.promo-banner-section {
+    .row {
+        height: 80vh;
+        min-height: 500px;
+        align-items: stretch !important; // Ensure full height
+
+        @media (max-width: 768px) {
+            height: 60vh;
+            min-height: 350px;
+        }
+    }
+
+    .promo-content {
+        min-height: 80vh !important;
+
+        @media (max-width: 768px) {
+            min-height: 60vh !important;
+            padding: 0 0 40px 0 !important; // Reduce bottom padding on mobile
+        }
+    }
+}
+
+// Mobile specific promo banner fixes
+@media (max-width: 768px) {
+    .promo-banner-section {
+        // Remove any mobile-specific overlays from inner elements only
+        .container, .row, [class*="col-"] {
+            background-color: transparent !important;
+        }
+
+        .promo-content {
+            .promo-subtitle {
+                font-size: 14px !important;
+                padding: 6px 16px !important;
+                margin-bottom: 12px !important;
+                border-radius: 20px !important;
+            }
+
+            .promo-title {
+                font-size: 18px !important; // Smaller font size for mobile
+                padding: 12px 18px !important;
+                margin: 12px auto !important;
+                border-radius: 12px !important;
+                line-height: 1.3 !important;
+            }
+
+            .promo-button {
+                margin-top: 15px !important;
+
+                .tp-btn {
+                    padding: 12px 25px !important;
+                    font-size: 14px !important;
+                    gap: 8px !important;
+                }
+            }
+        }
+    }
+}
+
+// Remove spacing above promo banner section
+.promo-banner-section {
+    + section,
+    + .section {
+        margin-top: 0 !important;
+        padding-top: 60px !important;
+
+        @media (max-width: 768px) {
+            padding-top: 40px !important;
+        }
+    }
+}
+
+// Ensure no spacing conflicts with previous sections
+section + .promo-banner-section,
+.section + .promo-banner-section {
+    margin-top: 0 !important;
+}
+
+// CRITICAL FIX: Handle transition between full-banner and promo-banner
+.full-banner-section + .promo-banner-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+}
+
+// Ensure any gaps between sections have black background
+.full-banner-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+
+    // Remove any spacing divs that create white gaps
+    + div[style*="height"] {
+        display: none !important;
+    }
+}
+
+// Target any remaining white space between sections
+body {
+    // Ensure any gaps are black, not white
+    background-color: #000000 !important;
+}
+
+// Fix any potential white gaps in the main content area
+main {
+    background-color: #000000 !important;
+
+    // Remove any default margins/padding that could create white gaps
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+// ULTIMATE FIX: Target any remaining white space between sections
+.full-banner-section ~ .promo-banner-section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+// Remove any spacing elements that might appear between sections
+div[style*="height: 40px"] {
+    display: none !important;
+}
+
+// Ensure seamless transition between sections
+section + section {
+    margin-top: 0 !important;
+    border-top: none !important;
+}
+
+// Target any potential white gaps in the page structure
+.container-fluid,
+.container {
+    background-color: transparent !important;
+}
+
+// Ensure the main wrapper has no white gaps
+.main-wrapper,
+.page-wrapper {
+    background-color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+// DESKTOP SHOP PAGE PRODUCTS - MATCH HOME PAGE STYLING
+@media (min-width: 768px) {
+    .product-area.dark-theme-section.bg-black .tpproduct__thumb-action,
+    .dark-theme-section.bg-black .tpproduct__thumb-action {
+        a.quickview,
+        a.wishlist,
+        a.add-to-wishlist {
+            background: #ffffff !important; // WHITE BACKGROUND
+            color: #000000 !important; // BLACK ICONS
+            border: none !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+            i, svg {
+                color: #000000 !important; // BLACK ICONS
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background: #ffffff !important; // KEEP WHITE BACKGROUND
+                color: #000000 !important; // KEEP BLACK ICONS
+
+                i, svg {
+                    color: #000000 !important; // KEEP BLACK ICONS
+                }
+            }
+        }
+    }
+
+    // FORCE DESKTOP SHOP PAGE PRODUCT ACTION BUTTONS TO MATCH HOME PAGE
+    .product-area.dark-theme-section.bg-black .tpproduct .tpproduct__thumb-action a,
+    .dark-theme-section.bg-black .tpproduct .tpproduct__thumb-action a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK ICONS
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        transition: none !important;
+
+        i, svg {
+            color: #000000 !important; // BLACK ICONS
+            font-size: 16px !important;
+        }
+    }
+
+    // DESKTOP SHOP PAGE ADD TO CART BUTTONS - MATCH HOME PAGE
+    .product-area.dark-theme-section.bg-black .tpproduct__cart a,
+    .dark-theme-section.bg-black .tpproduct__cart a {
+        background: #ffffff !important; // WHITE BACKGROUND
+        color: #000000 !important; // BLACK TEXT
+        border: none !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+        i {
+            color: #000000 !important; // BLACK ICON
+        }
+
+        span {
+            color: #000000 !important; // BLACK TEXT
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: #ffffff !important; // KEEP WHITE BACKGROUND
+            color: #000000 !important; // KEEP BLACK TEXT
+
+            i, span {
+                color: #000000 !important; // KEEP BLACK
+            }
+        }
+    }
+
+    // DESKTOP SHOP PAGE PRODUCT TITLES - WHITE TEXT ON BLACK BACKGROUND
+    .product-area.dark-theme-section.bg-black .tpproduct__title a,
+    .dark-theme-section.bg-black .tpproduct__title a {
+        color: #ffffff !important;
+
+        &:hover {
+            color: #ffffff !important;
+        }
+    }
+
+    // DESKTOP SHOP PAGE PRODUCT PRICES - WHITE TEXT
+    .product-area.dark-theme-section.bg-black .tpproduct__priceinfo-list span,
+    .dark-theme-section.bg-black .tpproduct__priceinfo-list span {
+        color: #ffffff !important;
+    }
+}
+
+// DESKTOP SPECIFIC FIX: Target image-text-section before promo banner
+@media (min-width: 769px) {
+    // ULTIMATE FIX: Force black background for image-text-section with maximum specificity
+    .image-text-section.py-5.scroll-animate.animate-fast.dark-theme-section.bg-black,
+    section.image-text-section.py-5.scroll-animate.animate-fast.dark-theme-section.bg-black,
+    .image-text-section {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+
+        // Ensure no white gaps after this section
+        &::before,
+        &::after {
+            display: none !important;
+            background: none !important;
+        }
+
+        // Force black background on all child elements
+        .container,
+        .row,
+        .col-lg-6,
+        .col-md-12,
+        .mb-4,
+        .mb-lg-0 {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+
+        // Ensure the image area has transparent background
+        .image-area {
+            background-color: transparent !important;
+        }
+
+        // Content area already has inline black background, but ensure it
+        .content-area {
+            background-color: #000000 !important;
+        }
+    }
+
+    // Override any Bootstrap bg-white or other background classes
+    .bg-white,
+    .bg-light,
+    .bg-secondary,
+    .bg-info,
+    .bg-warning,
+    .bg-danger {
+        &.image-text-section {
+            background-color: #000000 !important;
+        }
+    }
+
+    // Target the specific transition from image-text to promo-banner
+    .image-text-section + .promo-banner-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+    }
+
+    // Force black background for the entire page on desktop
+    body {
+        background-color: #000000 !important;
+    }
+
+    // Ensure main content area has black background
+    main {
+        background-color: #000000 !important;
+    }
+
+    // Remove any potential white space between sections
+    section.py-5 {
+        margin-bottom: 0 !important;
+
+        &.image-text-section {
+            padding-bottom: 0 !important;
+        }
+    }
+
+    // Target any container that might show white
+    .container,
+    .container-fluid {
+        background-color: transparent !important;
+    }
+
+    // Ensure html and body have black background
+    html {
+        background-color: #000000 !important;
+    }
+}
+
+// GLOBAL FIX: Ensure bg-black class always works
+.bg-black,
+section.bg-black,
+div.bg-black {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// Override Bootstrap and theme background classes
+.black-bg,
+.dark-theme-section.bg-black {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// Product Page White Background Styling
+.product-page-content.light-theme-section {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #000000 !important;
+    }
+
+    p, li, span, div, a {
+        color: #333333 !important;
+    }
+
+    // Ensure buttons have proper styling
+    .btn {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border: 1px solid #000000 !important;
+
+        &:hover {
+            background-color: #333333 !important;
+            color: #ffffff !important;
+        }
+    }
+}
+
+// Related Products Section - Match Home Page Product Styling
+.product-area.related-products.dark-theme-section.bg-black {
+    background-color: #000000 !important;
+
+    // Title styling
+    .tpsection__title {
+        color: #ffffff !important;
+
+        span {
+            color: #ffffff !important;
+        }
+    }
+
+    // Product items styling - match home page
+    .tpproduct {
+        // Product title
+        .tpproduct__title a {
+            color: #ffffff !important;
+
+            &:hover {
+                color: #ffffff !important;
+            }
+        }
+
+        // Price styling
+        .tpproduct__priceinfo-list {
+            span {
+                color: #ffffff !important;
+            }
+        }
+
+        // Add to cart button styling - match home page
+        .tpproduct__cart {
+            a {
+                background: #ffffff !important;
+                color: #000000 !important;
+                border: none !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+                i {
+                    color: #000000 !important;
+                }
+
+                span {
+                    color: #000000 !important;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+
+                    i, span {
+                        color: #000000 !important;
+                    }
+                }
+            }
+        }
+
+        // Action buttons styling - match home page
+        .tpproduct__thumb-action {
+            a.quickview,
+            a.wishlist,
+            a.add-to-wishlist {
+                background: #ffffff !important;
+                color: #000000 !important;
+                border: none !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+
+                i, svg {
+                    color: #000000 !important;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+
+                    i, svg {
+                        color: #000000 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Filter Sidebar Black Background - Comprehensive Styling
+.bb-product-filter {
+    background-color: #000000 !important;
+    border: 1px solid #333333 !important;
+
+    .bb-product-filter-title {
+        color: #ffffff !important;
+        border-bottom-color: #333333 !important;
+    }
+
+    .bb-product-filter-content {
+        background-color: #000000 !important;
+
+        .bb-product-filter-items {
+            .bb-product-filter-item {
+                .bb-product-filter-link {
+                    color: #ffffff !important;
+
+                    &:hover {
+                        color: #cccccc !important;
+                        background-color: #333333 !important;
+                    }
+
+                    &.active {
+                        color: #ffffff !important;
+                        background-color: #444444 !important;
+                    }
+                }
+
+                // Checkbox styling
+                input[type="checkbox"] {
+                    accent-color: #ffffff !important;
+                }
+
+                label {
+                    color: #ffffff !important;
+
+                    &:hover {
+                        color: #cccccc !important;
+                    }
+                }
+            }
+        }
+
+        // Price filter styling
+        .bb-product-price-filter {
+            .price-slider {
+                .ui-slider-range {
+                    background-color: #ffffff !important;
+                }
+
+                .ui-slider-handle {
+                    background-color: #ffffff !important;
+                    border-color: #ffffff !important;
+                }
+            }
+
+            .bb-product-price-filter-info {
+                .input-range {
+                    .input-range-label {
+                        color: #ffffff !important;
+
+                        .from, .to {
+                            color: #ffffff !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Shop Page Filter Sidebar Container
+.product-filter-mobile {
+    .product-filter-mobile__inner {
+        background-color: #000000 !important;
+        border: 1px solid #333333 !important;
+
+        .product-filter-mobile__header {
+            background-color: #333333 !important;
+            border-bottom: 1px solid #555555 !important;
+
+            h5 {
+                color: #ffffff !important;
+            }
+
+            .close-product-filter-mobile {
+                color: #ffffff !important;
+
+                &:hover {
+                    color: #cccccc !important;
+                }
+            }
+        }
+
+        .product-filter-mobile__content {
+            background-color: #000000 !important;
+        }
+    }
+}
+
+// Desktop Filter Sidebar
+@media (min-width: 992px) {
+    .tpsidebar.product-sidebar__product-category {
+        background-color: #000000 !important;
+        padding: 20px !important;
+        border-radius: 8px !important;
+        border: 1px solid #333333 !important;
+
+        .product-sidebar {
+            background-color: transparent !important;
+        }
+    }
+}
+
+// Ensure image-text-section specifically has black background on all devices
+.image-text-section {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    // Override any potential white backgrounds from child elements
+    .container,
+    .row,
+    [class*="col-"] {
+        background-color: transparent !important;
+    }
+}
+
+// DESKTOP SPECIFIC FIX: Target white background above promo banner
+@media (min-width: 769px) {
+    // Force black background for the entire page body on desktop
+    body {
+        background-color: #000000 !important;
+    }
+
+    // Ensure main content area has black background
+    main {
+        background-color: #000000 !important;
+    }
+
+    // Target any white sections between image-text and promo-banner
+    .image-text-section + .promo-banner-section,
+    section[class*="image-text"] + .promo-banner-section {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    // Force black background for any section that might appear white
+    section {
+        background-color: transparent !important;
+    }
+
+    // Specifically target the area above promo banner
+    .promo-banner-section {
+        margin-top: 0 !important;
+
+        // Remove any white space above
+        &::before {
+            display: none !important;
+        }
+    }
+
+    // Target any container that might have white background
+    .container,
+    .container-fluid {
+        background-color: transparent !important;
+    }
+
+    // Force black background for the entire viewport
+    html {
+        background-color: #000000 !important;
+    }
+}
+
+// Content Area Black Background
+.content-area {
+    background-color: #000000 !important;
+    padding: 40px !important;
+    border-radius: 12px !important;
+
+    .section-subtitle {
+        color: var(--primary-color) !important;
+    }
+
+    .section-title {
+        color: #ffffff !important;
+
+        span {
+            color: #ffffff !important;
+        }
+    }
+
+    .section-description {
+        color: #cccccc !important;
+    }
+
+    .section-button {
+        .tp-btn {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+            border: 2px solid #ffffff !important;
+
+            &:hover {
+                background-color: var(--primary-color) !important;
+                color: #ffffff !important;
+                border-color: var(--primary-color) !important;
+            }
+        }
+    }
+}
+
+// ULTIMATE TESTIMONIAL SECTION BLACK BACKGROUND FIX
+.testimonials-section, .testimonial-area, .tptestimonial-area {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    .container {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+
+    .tpsection__title, .tpsectionarea__title {
+        color: #ffffff !important;
+
+        span {
+            color: #ffffff !important;
+        }
+    }
+
+    .tpsectionarea__subtitle {
+        color: #ffffff !important;
+    }
+
+    .tptestimonial__item, .testimonial-item {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+
+        .tptestimonial__content {
+            p {
+                color: #cccccc !important;
+            }
+        }
+
+        .tptestimonial__avater {
+            .tptestimonial__name {
+                color: #ffffff !important;
+            }
+
+            .tptestimonial__designation {
+                color: #999999 !important;
+            }
+        }
+
+        .tptestimonial__rating {
+            i {
+                color: #ffc107 !important;
+            }
+        }
+    }
+}
+
+// FORCE TESTIMONIALS SECTION BLACK BACKGROUND - MAXIMUM SPECIFICITY
+html body section.testimonials-section.py-5.scroll-animate.animate-fast.dark-theme-section.bg-black,
+html body section.testimonials-section.py-5.scroll-animate.animate-fast.dark-theme-section,
+html body section.testimonials-section.py-5.scroll-animate.animate-fast,
+html body section.testimonials-section.py-5.scroll-animate,
+html body section.testimonials-section.py-5,
+html body section.testimonials-section,
+html body .testimonials-section {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    // Force all child elements to have transparent/black backgrounds
+    * {
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+
+    // Specifically target the container and grid elements
+    .container,
+    .container-fluid,
+    .row,
+    .col-12,
+    .col-md-12,
+    div[class*="col-"] {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+}
+
+// OVERRIDE ANY BOOTSTRAP OR THEME WHITE BACKGROUNDS FOR TESTIMONIALS
+.testimonials-section[style*="background-color"],
+section[class*="testimonials"][style*="background-color"] {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// TARGET THE EXACT PT-80 PB-80 WRAPPER WHEN IT CONTAINS TESTIMONIALS
+.pt-80.pb-80:has(.testimonials-section) {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    .container {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+}
+
+// FALLBACK FOR BROWSERS THAT DON'T SUPPORT :has() - TARGET PT-80 PB-80 DIRECTLY
+main .pt-80.pb-80 {
+    // Check if this div contains testimonials and force black background
+    &:has(.testimonials-section) {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+}
+
+// ULTIMATE FALLBACK - FORCE ALL PT-80 PB-80 THAT CONTAIN TESTIMONIALS TO BE BLACK
+div.pt-80.pb-80 .testimonials-section {
+    // Force parent to be black
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// NUCLEAR OPTION - OVERRIDE PT-80 PB-80 WHEN TESTIMONIALS ARE PRESENT
+body main .pt-80.pb-80 {
+    // If this contains testimonials, make it black
+    .testimonials-section {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+
+        // Also force the parent container to be black
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000000 !important;
+            z-index: -1;
+        }
+    }
+}
+
+// DIRECT PARENT TARGETING - FORCE PT-80 PB-80 TO BE BLACK WHEN IT HAS TESTIMONIALS
+.pt-80.pb-80 {
+    // Use JavaScript-like selector to target when testimonials are inside
+    &:has(.testimonials-section),
+    &:has([class*="testimonial"]) {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+
+        .container {
+            background-color: #000000 !important;
+            background-image: none !important;
+            background: #000000 !important;
+        }
+    }
+}
+
+// FINAL NUCLEAR OPTION - OVERRIDE ANY REMAINING WHITE BACKGROUNDS
+body main div.pt-80.pb-80 {
+    // If this div contains testimonials anywhere inside, make everything black
+    .testimonials-section,
+    [class*="testimonial"] {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+}
+
+// FORCE TESTIMONIALS CONTAINER PARENT TO BE BLACK
+main .pt-80.pb-80:has(.testimonials-section) {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    * {
+        background-color: transparent !important;
+    }
+
+    .container {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+}
+
+// BACKUP RULE FOR BROWSERS WITHOUT :has() SUPPORT
+main .pt-80.pb-80 .testimonials-section {
+    // Force parent containers to be black by using pseudo-elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: -80px;
+        left: 0;
+        right: 0;
+        bottom: -80px;
+        background-color: #000000 !important;
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+// ULTIMATE WHITE BACKGROUND FIX - MAXIMUM SPECIFICITY
+// Target the exact HTML structure from the user's screenshot
+html body section.image-text-section.py-5.scroll-animate.animate-fast.dark-theme-section.bg-black.in-view,
+html body section.image-text-section.py-5.scroll-animate.animate-fast.dark-theme-section.bg-black,
+html body section.image-text-section.py-5.scroll-animate.animate-fast.dark-theme-section,
+html body section.image-text-section.py-5.scroll-animate.animate-fast,
+html body section.image-text-section.py-5.scroll-animate,
+html body section.image-text-section.py-5,
+html body section.image-text-section,
+html body .image-text-section {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+
+    // Force all child elements to have transparent backgrounds
+    * {
+        background-color: transparent !important;
+        background-image: none !important;
+    }
+
+    // Specifically target the container and grid elements
+    .container,
+    .container-fluid,
+    .row,
+    .col-lg-6,
+    .col-md-12,
+    .mb-4,
+    .mb-lg-0,
+    div[class*="col-"] {
+        background-color: transparent !important;
+        background-image: none !important;
+        background: transparent !important;
+    }
+
+    // Ensure the image area has no background
+    .image-area {
+        background-color: transparent !important;
+        background-image: none !important;
+        background: transparent !important;
+    }
+
+    // Content area should remain black
+    .content-area {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+    }
+}
+
+// BROWSER DEFAULT OVERRIDE - Target any potential browser defaults
+section[class*="image-text"] {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// BOOTSTRAP OVERRIDE - Target any Bootstrap utility classes
+.py-5.image-text-section,
+.scroll-animate.image-text-section,
+.animate-fast.image-text-section,
+.dark-theme-section.image-text-section,
+.bg-black.image-text-section {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// INLINE STYLE OVERRIDE - Force override even inline styles
+section.image-text-section[style] {
+    background-color: #000000 !important;
+    background-image: none !important;
+    background: #000000 !important;
+}
+
+// PSEUDO-ELEMENT OVERRIDE - Remove any pseudo-elements that might show white
+section.image-text-section::before,
+section.image-text-section::after,
+.image-text-section::before,
+.image-text-section::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+// DESKTOP SPECIFIC ULTRA FIX
+@media (min-width: 769px) {
+    // Target the exact section with all possible class combinations
+    html body main section.image-text-section,
+    html body main .image-text-section,
+    html main section.image-text-section,
+    html main .image-text-section,
+    body main section.image-text-section,
+    body main .image-text-section,
+    main section.image-text-section,
+    main .image-text-section {
+        background-color: #000000 !important;
+        background-image: none !important;
+        background: #000000 !important;
+
+        // Override any potential white backgrounds from child elements
+        > * {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+    }
+
+    // Force black background for the entire page structure
+    html {
+        background-color: #000000 !important;
+    }
+
+    body {
+        background-color: #000000 !important;
+    }
+
+    main {
+        background-color: #000000 !important;
     }
 }

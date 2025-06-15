@@ -975,14 +975,15 @@
     inset-inline-start: 0;
     top: 0;
     height: 100%;
-    padding: 30px;
-    width: 350px;
+    padding: 20px;
+    width: 210px;
     transform: translateX(-120%);
     transition: 0.3s;
     z-index: 999;
     overflow-y: auto;
     @media #{$xs} {
-        width: 275px;
+        width: 165px;
+        padding: 15px;
     }
 
     &.tp-sidebar-opened {

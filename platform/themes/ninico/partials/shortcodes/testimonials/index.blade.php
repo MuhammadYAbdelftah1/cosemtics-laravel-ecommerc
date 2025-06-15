@@ -58,18 +58,19 @@
     };
 @endphp
 
-<section class="testimonials-section py-5 {{ $bgClass }}">
+<section class="testimonials-section py-5 scroll-animate animate-fast dark-theme-section bg-black"
+    style="background-color: #000000;">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="tpsectionarea text-center mb-5">
                     @if ($subtitle)
-                        <h5 class="tpsectionarea__subtitle">
+                        <h5 class="tpsectionarea__subtitle" style="color: #ffffff;">
                             {!! BaseHelper::clean($subtitle) !!}
                         </h5>
                     @endif
                     @if ($title)
-                        <h4 class="tpsectionarea__title">
+                        <h4 class="tpsectionarea__title" style="color: #ffffff;">
                             {!! BaseHelper::clean($title) !!}
                         </h4>
                     @endif
@@ -99,7 +100,7 @@
                             @endphp
                             <div class="swiper-slide">
                                 <div class="testimonial-item text-center p-4"
-                                    style="background: {{ $backgroundColor === 'primary' ? 'rgba(255,255,255,0.1)' : '#fff' }}; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin: 20px 10px;">
+                                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); margin: 20px 10px;">
                                     <!-- Rating Stars -->
                                     <div class="testimonial-rating mb-3">
                                         @for ($i = 1; $i <= 5; $i++)
@@ -110,7 +111,7 @@
                                     <!-- Testimonial Content -->
                                     <div class="testimonial-content mb-4">
                                         <p
-                                            style="font-size: 16px; line-height: 1.6; color: {{ $backgroundColor === 'primary' ? '#fff' : '#666' }}; font-style: italic;">
+                                            style="font-size: 16px; line-height: 1.6; color: #cccccc; font-style: italic;">
                                             "{{ $content }}"
                                         </p>
                                     </div>
@@ -122,11 +123,10 @@
                                                 style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #0989FF;">
                                         </div>
                                         <h5
-                                            style="color: {{ $backgroundColor === 'primary' ? '#fff' : '#333' }}; font-size: 18px; font-weight: 600; margin-bottom: 5px;">
+                                            style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 5px;">
                                             {{ $name }}
                                         </h5>
-                                        <p
-                                            style="color: {{ $backgroundColor === 'primary' ? 'rgba(255,255,255,0.8)' : '#0989FF' }}; font-size: 14px; margin: 0;">
+                                        <p style="color: #999999; font-size: 14px; margin: 0;">
                                             {{ $company }}
                                         </p>
                                     </div>

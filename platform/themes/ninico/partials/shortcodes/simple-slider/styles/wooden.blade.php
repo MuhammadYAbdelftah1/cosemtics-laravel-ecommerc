@@ -1,78 +1,44 @@
-<div class="container">
-    <div class="row justify-content-xl-end">
-        <div class="col-12">
-            <div class="tp-slider-area p-relative">
-                <div class="swiper-container slider-active">
-                    <div class="swiper-wrapper">
-                        @foreach ($sliders as $slider)
-                            <div class="swiper-slide">
-                                <div class="tp-slide-item">
-                                    <div class="tp-slide-item__content">
-                                        @if ($slider->description)
-                                            <h4 class="tp-slide-item__sub-title">{!! BaseHelper::clean($slider->description) !!}</h4>
-                                        @endif
-                                        @if ($slider->title)
-                                            <h3 class="tp-slide-item__title mb-25">
-                                                <span class="desktop-title">{!! BaseHelper::clean($slider->title) !!}</span>
-                                                <span class="mobile-title">
-                                                    @if ($loop->first)
-                                                        Transform Your Skin
-                                                    @elseif($loop->iteration == 2)
-                                                        Beautiful Hair Care
-                                                    @else
-                                                        Complete Beauty Solutions
-                                                    @endif
-                                                </span>
-                                            </h3>
-                                        @endif
-                                        @if (($actionLabel = $slider->getMetaData('action_label', true)) && $slider->link)
-                                            <a class="tp-slide-item__slide-btn tp-btn" href="/shop">
-                                                {{ $actionLabel }} <i class="fal fa-long-arrow-right"></i>
-                                            </a>
-                                        @endif
-                                    </div>
-                                    <div class="tp-slide-item__img">
-                                        @include(Theme::getThemeNamespace(
-                                                'partials.shortcodes.simple-slider.includes.image',
-                                                compact('slider')))
-                                    </div>
-                                </div>
+<div class="tp-slider-area p-relative full-width-slider">
+    <div class="swiper-container slider-active">
+        <div class="swiper-wrapper">
+            @foreach ($sliders as $slider)
+                <div class="swiper-slide">
+                    <div class="tp-slide-item">
+                        <div class="tp-slide-item__content">
+                            <div class="tp-slide-item__content-wrapper">
+                                @if ($loop->first)
+                                    <h4 class="tp-slide-item__sub-title">Skincare</h4>
+                                    <h3 class="tp-slide-item__title mb-25">
+                                        <span class="desktop-title">Transform Skin</span>
+                                        <span class="mobile-title">Transform Skin</span>
+                                    </h3>
+                                @elseif($loop->iteration == 2)
+                                    <h4 class="tp-slide-item__sub-title">Haircare</h4>
+                                    <h3 class="tp-slide-item__title mb-25">
+                                        <span class="desktop-title">Beautiful Hair</span>
+                                        <span class="mobile-title">Beautiful Hair</span>
+                                    </h3>
+                                @else
+                                    <h4 class="tp-slide-item__sub-title">Beauty</h4>
+                                    <h3 class="tp-slide-item__title mb-25">
+                                        <span class="desktop-title">Complete Solutions</span>
+                                        <span class="mobile-title">Complete Solutions</span>
+                                    </h3>
+                                @endif
+                                <a class="tp-slide-item__slide-btn tp-btn" href="/shop">
+                                    Shop Now <i class="fal fa-long-arrow-right"></i>
+                                </a>
                             </div>
-                        @endforeach
+                        </div>
+                        <div class="tp-slide-item__img">
+                            @include(Theme::getThemeNamespace(
+                                    'partials.shortcodes.simple-slider.includes.image',
+                                    compact('slider')))
+                        </div>
                     </div>
                 </div>
-                <div class="slider-pagination"></div>
-            </div>
+            @endforeach
         </div>
-        @if (is_plugin_active('ads') && $hasAds)
-            <div class="col-xl-3 col-xxl-3 col-lg-3 d-lg-none">
-                <div class="row">
-                    @foreach (range(1, 2) as $i)
-                        @continue(!$shortcode->{'ads_' . $i})
-
-                        @if ($ads = AdsManager::getAds($shortcode->{'ads_' . $i}))
-                            <div class="col-lg-12 col-md-6">
-                                <div @class([
-                                    'tpslider-banner',
-                                    'tp-slider-sm-banner mb-30' => $loop->first,
-                                ])>
-                                    <a href="{{ $ads->url }}">
-                                        <div class="tpslider-banner__img">
-                                            <img src="{{ RvMedia::getImageUrl($ads->image, null, false, RvMedia::getDefaultImage()) }}"
-                                                alt="{{ $ads->name }}">
-                                            @if ($shortcode->show_ads_title !== '0')
-                                                <div class="tpslider-banner__content">
-                                                    <h4 class="tpslider-banner__title">{!! BaseHelper::clean($ads->name) !!}</h4>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-        @endif
     </div>
+    <div class="slider-pagination"></div>
 </div>

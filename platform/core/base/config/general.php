@@ -2,7 +2,7 @@
 
 return [
     'admin_dir' => env('ADMIN_DIR', 'admin'),
-    'base_name' => env('APP_NAME', 'Botble Technologies'),
+    'base_name' => env('APP_NAME', 'Ecom-Eg'),
     'logo' => '/vendor/core/core/base/images/logo.png',
     'favicon' => '/vendor/core/core/base/images/favicon.png',
     'editor' => [

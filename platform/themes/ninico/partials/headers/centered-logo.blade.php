@@ -1,5 +1,4 @@
 <header class="platinam-light">
-    {!! Theme::partial('header-top', ['class' => 'platinam-bg platinam-header-top']) !!}
     <div class="mainmenuarea platinam-menuarea pt-30 d-none d-xl-block">
         <div class="container">
             <div class="row align-items-center">
@@ -7,10 +6,15 @@
                     <div class="col-lg-5">
                         <div class="mainmenu d-flex align-items-center">
                             <div class="mainmenu__search w-100">
-                                <form action="{{ route('public.products') }}" class="position-relative form--quick-search" data-url="{{ route('public.ajax.search-products') }}" method="GET">
+                                <form action="{{ route('public.products') }}" class="position-relative form--quick-search"
+                                    data-url="{{ route('public.ajax.search-products') }}" method="GET">
                                     <div class="mainmenu__search-bar p-relative">
-                                        <button class="mainmenu__search-icon" title="search"><i class="fal fa-search"></i></button>
-                                        <input type="text" name="q" class="input-search-product" placeholder="{{ __('Search products...') }}" value="{{ BaseHelper::stringify(request()->query('q')) }}" autocomplete="off">
+                                        <button class="mainmenu__search-icon" title="search"><i
+                                                class="fal fa-search"></i></button>
+                                        <input type="text" name="q" class="input-search-product"
+                                            placeholder="{{ __('Search products...') }}"
+                                            value="{{ BaseHelper::stringify(request()->query('q')) }}"
+                                            autocomplete="off">
                                     </div>
                                     <div class="panel--search-result"></div>
                                 </form>
